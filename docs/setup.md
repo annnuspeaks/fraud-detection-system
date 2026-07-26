@@ -135,3 +135,22 @@ Initialize the FastAPI backend for the Fraud Detection System.
 ## Outcome
 
 A modular FastAPI backend has been successfully initialized and is ready for API development.
+
+# 1.6 Frontend Initialization
+
+## Objective
+
+Initialize the React frontend using Vite and establish the project's UI foundation.
+
+## Completed
+
+- Initialized React project inside the `frontend/` directory using Vite
+- Installed project dependencies
+- Installed React Router DOM
+- Installed Axios
+- Verified development server
+- Confirmed project structure
+
+## Outcome
+
+The frontend is successfully initialized and isolated from the backend, following the project's monorepo architecture.
