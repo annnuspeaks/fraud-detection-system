@@ -48,13 +48,49 @@ Fraud Detection System
 ├── Phase 2 : Data Engineering
 │
 │   2.1 Dataset Collection
+│    ├── 2.1.1 Dataset Selection
+│    ├── 2.1.2 Dataset Documentation
+│    ├── 2.1.3 Data Dictionary
+│    ├── 2.1.4 Dataset Licensing & Source
+│    └── 2.1.5 Dataset Download & Storage
 │   2.2 Dataset Validation
+│    ├── 2.2.1 File Validation
+│    ├── 2.2.2 Schema Validation
+│    ├── 2.2.3 Missing Values Analysis
+│    ├── 2.2.4 Duplicate Records Analysis
+│    ├── 2.2.5 Data Types Validation
+│    └── 2.2.6 Target Variable Validation
 │   2.3 Data Cleaning
+│    ├── 2.3.1 Remove Duplicates
+│    ├── 2.3.2 Handle Missing Values
+│    ├── 2.3.3 Handle Invalid Values
+│    ├── 2.3.4 Outlier Analysis
+│    └── 2.3.5 Data Consistency Checks
 │   2.4 Exploratory Data Analysis
+│    ├── 2.4.1 Dataset Overview
+│    ├── 2.4.2 Univariate Analysis
+│    ├── 2.4.3 Bivariate Analysis
+│    ├── 2.4.4 Correlation Analysis
+│    ├── 2.4.5 Target Distribution
+│    └── 2.4.6 Business Insights
 │   2.5 Feature Engineering
+│    ├── 2.5.1 Feature Selection
+│    ├── 2.5.2 Feature Creation
+│    ├── 2.5.3 Encoding Strategy
+│    ├── 2.5.4 Scaling Strategy
+│    └── 2.5.5 Feature Importance Review
 │   2.6 Data Preprocessing
-│   2.7 Train/Test Split
+│    ├── 2.6.1 Build Preprocessing Pipeline    
+│    ├── 2.6.2 Validate Pipeline (updated 2.6.3 to 2.6.2)
+│    └── 2.6.3 Preprocessing Documentation (2.6.2 Save pipeline discarded)
+│   2.7 Dataset Spiltting
+│    ├── 2.7.1 Train/Validation/Test Split    
+│    ├── 2.7.2 Stratification Check
+│    └── 2.7.3 Save Processed Data
 │   2.8 Data Versioning
+│    ├── 2.8.1 Initiate DVC
+│    ├── 2.8.2 Track Raw & Processed Data
+│    └── 2.8.3 Documentation Update
 │
 ├── Phase 3 : Machine Learning
 │

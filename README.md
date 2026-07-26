@@ -92,3 +92,39 @@ fraud-detection-system/
 ## License
 
 This project is developed for educational and portfolio purposes.
+
+## Data Versioning
+
+This project uses **Data Version Control (DVC)** to manage machine learning datasets.
+
+### Tracked Data
+
+- Raw credit card transaction dataset
+- Processed training dataset
+- Processed validation dataset
+- Processed testing dataset
+
+### Why DVC?
+
+- Keeps large datasets out of Git history.
+- Enables reproducible experiments.
+- Tracks dataset versions alongside source code.
+- Supports scalable MLOps workflows.
+
+### Initialize DVC
+
+```bash
+dvc init
+```
+
+### Pull Data
+
+```bash
+dvc pull
+```
+
+### Check Status
+
+```bash
+dvc status
+```
