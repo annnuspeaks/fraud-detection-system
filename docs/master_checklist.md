@@ -95,13 +95,118 @@ Fraud Detection System
 ├── Phase 3 : Machine Learning
 │
 │   3.1 Baseline Model
-│   3.2 Handling Imbalanced Data
+|   ├── 3.1.1 Load Processed Data
+│   ├── 3.1.2 Fit Preprocessing Pipeline
+│   ├── 3.1.3 Train Baseline Logistic Regression
+│   ├── 3.1.4 Baseline Performance
+│   └── 3.1.5 Documentation Update
+│   
+    3.2 Handling Imbalanced Data
+    │
+    ├── 3.2.1 Analyze Class Distribution
+    │   ├── Load target distribution
+        ├── Count Class Distribution
+    │   ├── Visualize class imbalance
+    │   ├── Calculate imbalance ratio
+    |   ├── Interpret the results
+    │   └── Documentation update
+    │
+    ├── 3.2.2 Baseline Without Resampling
+    │   ├── Review baseline metrics
+    │   ├── Analyze confusion matrix
+    │   ├── Identify model weaknesses
+    │   ├── Establish comparison benchmark
+    │   └── Documentation update
+    │
+    ├── 3.2.3 Class Weight Strategy
+    │   ├── Train weighted logistic regression
+    │   ├── Evaluate weighted model
+    │   ├── Compare with baseline
+    │   ├── Alalyze improvements
+    │   └── Documentation update
+    │
+    ├── 3.2.4 Random Oversampling
+    │   ├── Apply Random OverSampling
+    │   ├── Train oversampled model
+    │   ├── Evaluate oversampled model
+    │   ├── Compare with previous models
+    │   ├── Analyze improvements
+    │   └── Documentation update
+    │
+    ├── 3.2.5 Random Undersampling
+    │   ├── Apply Random UnderSampling
+    │   ├── Train undersampled model
+    │   ├── Evaluate undersampled model
+    │   ├── Analyze improvements
+    │   └── Documentation update
+    │
+    ├── 3.2.6 SMOTE Oversampling
+    │   ├── Apply SMOTE
+    │   ├── Train SMOTE model
+    │   ├── Evaluate SMOTE performance
+    │   ├── Compare with previous methods
+    │   ├── Analyze improvements
+    │   └── Documentation update
+    │
+    ├── 3.2.7 Strategy Comparison
+    │   ├── Build comparison table
+    │   ├── Compare Precision
+    │   ├── Compare Recall
+    │   ├── Compare F1-Score
+    │   ├── Compare ROC-AUC
+    │   ├── Compare PR-AUC
+    │   └── Visualize results
+    │
+    ├── 3.2.8 Select Final Sampling Strategy
+    │   ├── Select best approach
+    │   ├── Justify selection
+    │   ├── Save decision for future phases
+    │   └── Prepare final training dataset
+    │
+    └── 3.2.9 Documentation Update
+        ├── Update README.md
+        ├── Update docs/ml.md
+        └── Record experimental observations
+
 │   3.3 Model Training
+│   ├── 3.3.1 Candidate Model Selection
+│   ├── 3.3.2 Train Logistic Regression
+│   ├── 3.3.3 Train Random Forest
+│   ├── 3.3.4 Train XGBoost
+│   ├── 3.3.5 Train LightGBM (Optional)
+│   ├── 3.3.6 Training Summary
+│   └── 3.3.7 Documentation Update
 │   3.4 Hyperparameter Tuning
-│   3.5 Model Evaluation
-│   3.6 Explainability
+│   ├── 3.4.1 Define Search Space
+│   ├── 3.4.2 Cross Validation
+│   ├── 3.4.3 Randomized/Grid Search
+│   ├── 3.4.4 Best Model Selection
+│   └── 3.4.5 Documentation Update
+├── 3.5 Model Evaluation
+│   ├── 3.5.1 Evaluation Metrics
+│   ├── 3.5.2 Confusion Matrix
+│   ├── 3.5.3 ROC Curve & AUC
+│   ├── 3.5.4 Precision-Recall Curve
+│   ├── 3.5.5 Threshold Optimization
+│   ├── 3.5.6 Validation vs Test Comparison
+│   └── 3.5.7 Documentation Update
+├── 3.6 Explainability
+│   ├── 3.6.1 Feature Importance
+│   ├── 3.6.2 Permutation Importance
+│   ├── 3.6.3 SHAP Explainability
+│   ├── 3.6.4 Business Interpretation
+│   └── 3.6.5 Documentation Update
 │   3.7 Model Selection
+│   ├── 3.7.1 Compare All Models
+│   ├── 3.7.2 Select Production Model
+│   ├── 3.7.3 Final Validation
+│   └── 3.7.4 Documentation Update
 │   3.8 Model Serialization
+│   ├── 3.8.1 Save Trained Model
+│   ├── 3.8.2 Save Preprocessing Pipeline
+│   ├── 3.8.3 Load & Verify Artifacts
+│   ├── 3.8.4 Version Artifacts
+│   └── 3.8.5 Documentation Update
 │
 ├── Phase 4 : Backend Development
 │
