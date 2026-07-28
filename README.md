@@ -236,3 +236,88 @@ Upcoming strategies:
 - Final Strategy Comparison
 - Final Sampling Strategy Selection
 
+### SMOTE Oversampling
+
+To improve the detection of fraudulent transactions, Synthetic Minority Over-sampling Technique (SMOTE) was applied to the training dataset.
+
+Unlike Random Oversampling, which duplicates existing minority samples, SMOTE generates new synthetic fraud samples by interpolating between existing minority observations. This helps the model learn a more generalized decision boundary while reducing the risk of overfitting caused by duplicate samples.
+
+#### Implementation
+
+- Applied SMOTE only on the training dataset
+- Validation and test datasets remained untouched
+- Logistic Regression was retrained using the SMOTE-balanced dataset
+- Model performance was evaluated using multiple classification metrics
+
+#### Performance Summary
+
+| Metric | Value |
+|---------|------:|
+| Accuracy | 0.9747 |
+| Precision | 0.0533 |
+| Recall | 0.8333 |
+| F1-Score | 0.1003 |
+| ROC-AUC | 0.9370 |
+| PR-AUC | 0.6480 |
+
+#### Business Interpretation
+
+SMOTE substantially improved the fraud detection capability of the Logistic Regression model by increasing Recall from the baseline while reducing missed fraud cases.
+
+Although Precision remained relatively low due to additional false positives, this trade-off is acceptable in fraud detection systems where identifying fraudulent transactions is generally more important than minimizing investigation effort.
+
+This experiment establishes SMOTE as one of the strongest imbalance-handling strategies evaluated before moving to advanced machine learning models.
+
+### Phase 3.2: Handling Imbalanced Data
+
+Fraud detection datasets are naturally imbalanced, where fraudulent transactions represent only a small fraction of the total observations. Training machine learning models directly on such datasets often results in poor fraud detection despite high overall accuracy.
+
+During this phase, multiple imbalance handling strategies were implemented and evaluated:
+
+- Baseline (No Sampling)
+- Class Weight
+- Random Oversampling
+- Random Undersampling
+- SMOTE (Synthetic Minority Over-sampling Technique)
+
+Each strategy was compared using the following evaluation metrics:
+
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- ROC-AUC
+- PR-AUC
+
+Comparative analysis showed that **SMOTE** provided the best balance between fraud detection capability and overall model performance. Therefore, SMOTE was selected as the standard sampling strategy for all subsequent supervised machine learning models.
+
+The finalized datasets (`X_train_final`, `y_train_final`, `X_test_final`, and `y_test_final`) were prepared for reuse in the upcoming modeling phases to ensure consistency and fair model comparison.
+
+### Final Modeling Dataset
+
+The finalized datasets generated after preprocessing and imbalance handling are exported to the `data/final/` directory.
+
+These datasets are reused by all subsequent model training notebooks to ensure reproducibility and maintain a consistent preprocessing pipeline across the project.
+
+Exported files:
+
+- `X_train_final.csv`
+- `y_train_final.csv`
+- `X_test_final.csv`
+- `y_test_final.csv`
+
+### Logistic Regression
+
+The Logistic Regression model was trained as the baseline classifier using the finalized SMOTE-balanced training dataset.
+
+The model was evaluated using Accuracy, Precision, Recall, F1-Score, ROC-AUC, and PR-AUC. In addition to numerical metrics, Confusion Matrix, ROC Curve, Precision-Recall Curve, and coefficient analysis were performed to understand model behavior.
+
+The evaluation results were stored in a centralized comparison table for benchmarking against subsequent machine learning models.
+
+### Random Forest
+
+The Random Forest classifier was trained using the finalized SMOTE-balanced training dataset.
+
+The model was evaluated using Accuracy, Precision, Recall, F1-Score, ROC-AUC, and PR-AUC. Additional evaluation included the Confusion Matrix, ROC Curve, Precision-Recall Curve, and Feature Importance analysis.
+
+The evaluation metrics were appended to the centralized model comparison table for benchmarking against other machine learning models.

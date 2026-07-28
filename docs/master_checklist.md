@@ -105,7 +105,7 @@ Fraud Detection System
     │
     ├── 3.2.1 Analyze Class Distribution
     │   ├── Load target distribution
-        ├── Count Class Distribution
+    │   ├── Count Class Distribution
     │   ├── Visualize class imbalance
     │   ├── Calculate imbalance ratio
     |   ├── Interpret the results
@@ -163,20 +163,82 @@ Fraud Detection System
     │   ├── Save decision for future phases
     │   └── Prepare final training dataset
     │
-    └── 3.2.9 Documentation Update
-        ├── Update README.md
-        ├── Update docs/ml.md
-        └── Record experimental observations
-
-│   3.3 Model Training
+    ├── 3.2.9 Documentation Update
+    |    ├── Update README.md
+    |    ├── Update docs/ml.md
+    |    └── Record experimental observations
+    |
+    └── 3.2.10 Export Final Datasets
+│   
+├── 3.3 Model Training
 │   ├── 3.3.1 Candidate Model Selection
+│   │   ├── Fave final datasets
+│   │   ├── Create model training notebook
+│   │   ├── Load final datasets
+│   │   ├── Verify dataset integrity
+│   │   └── Candidate model selection
+│   │
 │   ├── 3.3.2 Train Logistic Regression
+│   │   ├── Import libraries
+│   │   ├── Initialize model
+│   │   ├── Train model
+│   │   ├── Generate predictions
+│   │   ├── Evaluate performance
+│   │   ├── Confusion matrix
+│   │   ├── ROC curve
+│   │   ├── Precision-recall curve
+│   │   ├── Model interpretation
+│   │   └── Save results for comparison
+│   │
 │   ├── 3.3.3 Train Random Forest
+│   │   ├── Import libraries
+│   │   ├── Initialize model
+│   │   ├── Train model
+│   │   ├── Generate predictions
+│   │   ├── Evaluate performance
+│   │   ├── Confusion matrix
+│   │   ├── ROC curve
+│   │   ├── Precision-recall curve
+│   │   ├── Model interpretation
+│   │   └── Save results for comparison
+│   │
 │   ├── 3.3.4 Train XGBoost
+│   │   ├── Import libraries
+│   │   ├── Initialize model
+│   │   ├── Train model
+│   │   ├── Generate predictions
+│   │   ├── Evaluate performance
+│   │   ├── Confusion matrix
+│   │   ├── ROC curve
+│   │   ├── Precision-recall curve
+│   │   ├── Feature importance
+│   │   └── Save results for comparison
+│   │
 │   ├── 3.3.5 Train LightGBM (Optional)
+│   │   ├── Import libraries
+│   │   ├── Initialize model
+│   │   ├── Train model
+│   │   ├── Generate predictions
+│   │   ├── Evaluate performance
+│   │   ├── Confusion matrix
+│   │   ├── ROC curve
+│   │   ├── Precision-recall curve
+│   │   ├── Feature importance
+│   │   └── Save results for comparison
+│   │
 │   ├── 3.3.6 Training Summary
+│   │   ├── Final model comparison table
+│   │   ├── Best model by each metric
+│   │   ├── Overall performance ranking
+│   │   ├── Strengths and limitations
+│   │   ├── Final model selection strategy
+│   │   ├── Summary of findings
+│   │   ├── Conclusion
+│   │   └── Transition to hyperparameter tuning
+│   │
 │   └── 3.3.7 Documentation Update
-│   3.4 Hyperparameter Tuning
+│
+├── 3.4 Hyperparameter Tuning
 │   ├── 3.4.1 Define Search Space
 │   ├── 3.4.2 Cross Validation
 │   ├── 3.4.3 Randomized/Grid Search
@@ -188,10 +250,10 @@ Fraud Detection System
 │   ├── 3.5.3 ROC Curve & AUC
 │   ├── 3.5.4 Precision-Recall Curve
 │   ├── 3.5.5 Threshold Optimization
-│   ├── 3.5.6 Validation vs Test Comparison
+│   ├── 3.5.6 Generalization Assessment
 │   └── 3.5.7 Documentation Update
 ├── 3.6 Explainability
-│   ├── 3.6.1 Feature Importance
+│   ├── 3.6.1 Native Feature Importance (Tree-based importance)
 │   ├── 3.6.2 Permutation Importance
 │   ├── 3.6.3 SHAP Explainability
 │   ├── 3.6.4 Business Interpretation
