@@ -321,3 +321,19 @@ The Random Forest classifier was trained using the finalized SMOTE-balanced trai
 The model was evaluated using Accuracy, Precision, Recall, F1-Score, ROC-AUC, and PR-AUC. Additional evaluation included the Confusion Matrix, ROC Curve, Precision-Recall Curve, and Feature Importance analysis.
 
 The evaluation metrics were appended to the centralized model comparison table for benchmarking against other machine learning models.
+
+## Backend Progress
+
+### Phase 4
+
+#### ✅ 4.1 FastAPI Setup
+
+Completed
+
+Features:
+
+- FastAPI backend initialized
+- Interactive Swagger documentation
+- ReDoc documentation
+- Root endpoint
+- OpenAPI specification
