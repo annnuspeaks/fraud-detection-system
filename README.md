@@ -337,3 +337,35 @@ Features:
 - ReDoc documentation
 - Root endpoint
 - OpenAPI specification
+
+## Backend API
+
+The backend is built using FastAPI and exposes REST APIs for real-time fraud detection.
+
+### Features
+
+- FastAPI
+- Swagger Documentation
+- Prediction API
+- Validation Layer
+- Custom Error Handling
+- Logging
+- Health Check Endpoint
+
+### Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | /predict | Predict fraudulent transaction |
+| GET | /health | API Health Status |
+
+### Run Backend
+
+```bash
+cd backend
+uvicorn app.main:app --reload
+```
+
+Swagger:
+
+http://127.0.0.1:8000/docs

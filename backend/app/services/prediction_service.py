@@ -6,22 +6,23 @@ from app.models.model_loader import (
 )
 from app.schemas.prediction_request import PredictionRequest
 from app.schemas.prediction_response import PredictionResponse
+from app.core.logger import logger
 
 import joblib
 from pathlib import Path
 
-
-ARTIFACTS_DIR = Path(__file__).resolve().parents[3] / "artifacts"
+from app.core.config import PREPROCESSING_PIPELINE_PATH
 
 preprocessing_pipeline = joblib.load(
-    ARTIFACTS_DIR / "preprocessing_pipeline.pkl"
+    PREPROCESSING_PIPELINE_PATH
 )
-
 
 class PredictionService:
 
     @staticmethod
     def predict(request: PredictionRequest) -> PredictionResponse:
+        
+        logger.info("Prediction request received.")
 
         raw_data = pd.DataFrame([request.model_dump()])
 
@@ -46,6 +47,12 @@ class PredictionService:
             risk = "Medium"
         else:
             risk = "Low"
+            
+        logger.info(
+            f"Prediction={prediction}, "
+            f"Probability={probability:.4f}, "
+            f"Risk={risk}"
+        )
 
         message = (
             "Potential fraudulent transaction detected."
@@ -53,9 +60,13 @@ class PredictionService:
             else "Transaction appears to be genuine."
         )
 
+        logger.info("Prediction completed successfully.")
+        
         return PredictionResponse(
             prediction=prediction,
             fraud_probability=round(probability, 4),
             risk_level=risk,
             message=message
         )
+        
+        
