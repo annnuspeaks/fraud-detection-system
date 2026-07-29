@@ -47,11 +47,27 @@ API
 - ✅ 5.1 Frontend Audit & Setup
 - ✅ 5.2 Frontend Architecture
 
+## Routing
+
+Implemented React Router DOM.
+
+Pages added:
+
+- Home
+- Prediction
+- NotFound
+
+Routing Structure
+
+/              → Home
+
+/prediction    → Prediction
+
+*              → Not Found
+
 ## Architecture Decisions
 
 ## UI Design Principles
-
-## Routing
 
 ## API Integration
 
