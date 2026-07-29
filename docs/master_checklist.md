@@ -306,17 +306,16 @@ Fraud Detection System
 │   ├── 5.1 Frontend Audit & Setup
 │   ├── 5.2 Folder Architecture
 │   ├── 5.3 Routing
-│   ├── 5.4 API Service Layer
-│   ├── 5.5 UI Theme
-│   ├── 5.6 Shared Components
-│   ├── 5.7 Prediction Page
-│   ├── 5.8 API Integration
-│   ├── 5.9 Result Visualization
-│   ├── 5.10 Loading & Error States
-│   ├── 5.11 Responsive UI
-│   ├── 5.12 Frontend Documentation
-│   ├── 5.13 Frontend Review Session
-│   └── 5.14 Phase Lock
+│   ├── 5.4 Shared Layout
+│   ├── 5.5 API Layer
+│   ├── 5.6 Prediction Form
+│   ├── 5.7 Prediction Results
+│   ├── 5.8 Backend Integration
+│   ├── 5.9 Loading & Error States
+│   ├── 5.10 Responsive Design
+│   ├── 5.11 Documentation
+│   ├── 5.12 Frontend Review Session
+│   └── 5.13 Phase Lock
 │
 ├── Phase 6 : Integration
 │   │

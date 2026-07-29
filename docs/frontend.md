@@ -40,13 +40,6 @@ API
 
 ---
 
-## Phase Progress
-
-### Phase 5
-
-- ✅ 5.1 Frontend Audit & Setup
-- ✅ 5.2 Frontend Architecture
-
 ## Routing
 
 Implemented React Router DOM.
@@ -64,6 +57,17 @@ Routing Structure
 /prediction    → Prediction
 
 *              → Not Found
+
+## Shared Layout
+
+Implemented application layout components:
+
+- Layout
+- Navbar
+- Footer
+- PageContainer
+
+All application pages are rendered inside a shared layout.
 
 ## Architecture Decisions
 
