@@ -1,6 +1,12 @@
+import PredictionForm from "../../components/prediction/PredictionForm/PredictionForm";
+
 function Prediction() {
     return (
-        <h1>Prediction Page</h1>
+        <>
+            <h1>Fraud Prediction</h1>
+
+            <PredictionForm />
+        </>
     );
 }
 

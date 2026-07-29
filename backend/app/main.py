@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from app.api.prediction import router as prediction_router
 from app.api.health import router as health_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Fraud Detection System API",
@@ -28,6 +29,16 @@ Enterprise-grade Machine Learning API for real-time credit card fraud detection.
     license_info={
         "name": "MIT License"
     }
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(prediction_router)

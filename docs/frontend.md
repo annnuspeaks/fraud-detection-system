@@ -71,33 +71,35 @@ The application now renders all pages inside a common layout, providing a consis
 
 ## API Layer
 
-Implemented the frontend API layer.
-
-Components:
+Implemented:
 
 - Shared Axios instance
-- Centralized API constants
+- Centralized API configuration
 - Prediction service
+- Health service
 
-Architecture:
+Verification:
 
-UI
-↓
+- Axios installed
+- Backend connectivity verified
+- CORS configured
+- Health endpoint successfully invoked from the frontend
 
-Services
-↓
+## Prediction Form
 
-Axios
+Implemented:
 
-↓
+- Reusable FeatureInput component
+- Controlled PredictionForm
+- React state management
+- Form submission with preventDefault
+- Console logging for submitted data
 
-FastAPI Backend
-
-Rules:
-
-- Components never call Axios directly.
-- Services handle all backend communication.
-- API endpoints are centralized.
+Verification:
+- Form rendering verified
+- Controlled inputs verified
+- Form submission verified
+- No project-related console errors
 
 ## Architecture Decisions
 
