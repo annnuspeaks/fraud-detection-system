@@ -369,3 +369,16 @@ uvicorn app.main:app --reload
 Swagger:
 
 http://127.0.0.1:8000/docs
+
+## Frontend
+
+The frontend is built using React and Vite following a modular, scalable architecture.
+
+Key technologies:
+
+- React 19
+- Vite
+- Axios
+- React Router DOM
+
+The application follows a layered architecture separating pages, reusable components, services, and API communication.
