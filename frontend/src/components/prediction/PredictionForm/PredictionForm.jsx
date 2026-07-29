@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FeatureInput from "../FeatureInput/FeatureInput";
 
-function PredictionForm() {
+function PredictionForm({ onPrediction }) {
     const [formData, setFormData] = useState({
         time: "",
         transactionHour: "",
@@ -21,6 +21,15 @@ function PredictionForm() {
         event.preventDefault();
 
         console.log("Prediction Input:", formData);
+
+        const mockResponse = {
+            prediction: 1,
+            fraud_probability: 0.9642,
+            risk_level: "HIGH",
+            message: "High probability of fraudulent transaction.",
+        };
+
+        onPrediction(mockResponse);
     };
 
     return (
