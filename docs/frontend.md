@@ -67,7 +67,37 @@ Implemented application layout components:
 - Footer
 - PageContainer
 
-All application pages are rendered inside a shared layout.
+The application now renders all pages inside a common layout, providing a consistent structure across the frontend.
+
+## API Layer
+
+Implemented the frontend API layer.
+
+Components:
+
+- Shared Axios instance
+- Centralized API constants
+- Prediction service
+
+Architecture:
+
+UI
+↓
+
+Services
+↓
+
+Axios
+
+↓
+
+FastAPI Backend
+
+Rules:
+
+- Components never call Axios directly.
+- Services handle all backend communication.
+- API endpoints are centralized.
 
 ## Architecture Decisions
 
