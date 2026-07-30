@@ -1,14 +1,20 @@
 import { useState } from "react";
+
 import FeatureInput from "../FeatureInput/FeatureInput";
+import { predictFraud } from "../../../services/predictionService";
 
 function PredictionForm({ onPrediction }) {
+
     const [formData, setFormData] = useState({
         time: "",
         transactionHour: "",
         amount: "",
     });
 
+    const [loading, setLoading] = useState(false);
+
     const handleChange = (event) => {
+
         const { name, value } = event.target;
 
         setFormData((previous) => ({
@@ -17,23 +23,49 @@ function PredictionForm({ onPrediction }) {
         }));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+
         event.preventDefault();
 
-        console.log("Prediction Input:", formData);
+        try {
 
-        const mockResponse = {
-            prediction: 1,
-            fraud_probability: 0.9642,
-            risk_level: "HIGH",
-            message: "High probability of fraudulent transaction.",
-        };
+            setLoading(true);
 
-        onPrediction(mockResponse);
+            const payload = {
+                Time: Number(formData.time),
+                TransactionHour: Number(formData.transactionHour),
+                Amount: Number(formData.amount),
+            };
+
+            console.log("Sending Payload:", payload);
+
+            const response = await predictFraud(payload);
+
+            console.log("Backend Response:", response);
+
+            onPrediction(response);
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                error?.response?.data?.detail ||
+                "Prediction failed."
+            );
+
+        } finally {
+
+            setLoading(false);
+
+        }
+
     };
 
     return (
+
         <form onSubmit={handleSubmit}>
+
             <FeatureInput
                 label="Time"
                 name="time"
@@ -61,11 +93,17 @@ function PredictionForm({ onPrediction }) {
                 placeholder="Transaction amount"
             />
 
-            <button type="submit">
-                Predict
+            <button
+                type="submit"
+                disabled={loading}
+            >
+                {loading ? "Predicting..." : "Predict"}
             </button>
+
         </form>
+
     );
+
 }
 
 export default PredictionForm;
