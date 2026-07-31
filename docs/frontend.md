@@ -116,6 +116,27 @@ Verification:
 - Risk badge displayed dynamically.
 - Mock prediction rendered correctly.
 
+## CSV Batch Prediction Frontend
+
+Status: ✅ COMPLETED
+
+Implemented:
+- CSV file selection
+- Upload validation
+- Multipart API integration
+- Loading state
+- Error handling
+- Batch prediction summary
+- Prediction table
+- Risk badge rendering
+- Frontend–backend compatibility verification
+
+Verified:
+- Successful CSV upload
+- Correct API contract
+- Correct rendering of prediction results
+- Stable upload workflow
+
 ## Architecture Decisions
 
 ## UI Design Principles

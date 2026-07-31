@@ -311,6 +311,43 @@ Fraud Detection System
 │   ├── 5.6 Prediction Form
 │   ├── 5.7 Prediction Results
 │   ├── 5.8 Backend Integration
+│   │   │
+│   │   ├── 5.8.1 Backend CSV Upload API
+│   │   │   ├── 5.8.1.1 Existing Schema Review
+│   │   │   ├── 5.8.1.2 Batch Response Schema
+│   │   │   ├── 5.8.1.3 Batch Prediction Service
+│   │   │   ├── 5.8.1.4 CSV Upload Endpoint
+│   │   │   ├── 5.8.1.5 CSV Validation
+│   │   │   ├── 5.8.1.6 Swagger Testing
+│   │   │   ├── 5.8.1.7 Backend Verification
+│   │   │   └── 5.8.1.8 Phase Lock
+│   │   │   
+│   │   ├── 5.8.2 Frontend CSV Upload
+│   │   │   │
+│   │   │   ├── 5.8B.1 Full Frontend Audit
+│   │   │   ├── 5.8B.2 Backend Contract Sync
+│   │   │   ├── 5.8B.3 Prediction Page Refractor
+│   │   │   ├── 5.8B.4 CSVUploader Component
+│   │   │   ├── 5.8B.5 Upload Validation
+│   │   │   ├── 5.8B.6 API Integration
+│   │   │   ├── 5.8B.7 Loading & Progress UI
+│   │   │   ├── 5.8B.8 Batch Result Summary
+│   │   │   ├── 5.8B.9 Prediction Table
+│   │   │   ├── 5.8B.10 Error Handling
+<!-- │   │   │   ├── 5.8B.11 Responsive Polish -->
+│   │   │   ├── 5.8B.12 Frontend Verification
+│   │   │   └── 5.8B.13 Phase Lock
+│   │   │
+│   │   └── 5.8.3 End-to-End Verification
+│   │       │
+│   │       ├── 5.8.3.1 Backend–Frontend Contract Verification
+│   │       ├── 5.8.3.2 End-to-End Testing
+│   │       ├── 5.8.3.3 UX Polish
+│   │       ├── 5.8.3.4 Performance Check
+│   │       ├── 5.8.3.5 Final Integration Verification
+│   │       └── 5.8.3.6 Phase Lock
+│   │
+│   │   
 │   ├── 5.9 Loading & Error States
 │   ├── 5.10 Responsive Design
 │   ├── 5.11 Documentation

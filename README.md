@@ -382,3 +382,11 @@ Key technologies:
 - React Router DOM
 
 The application follows a layered architecture separating pages, reusable components, services, and API communication.
+
+### Batch CSV Fraud Prediction
+
+- Upload CSV files for batch fraud analysis
+- Real-time prediction summary
+- Risk-level visualization
+- Detailed prediction table
+- Enterprise-ready frontend/backend integration

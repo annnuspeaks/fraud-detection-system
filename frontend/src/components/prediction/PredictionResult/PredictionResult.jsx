@@ -1,47 +1,102 @@
-import RiskBadge from "../RiskBadge/RiskBadge";
-
 function PredictionResult({ result }) {
+
     if (!result) {
         return null;
     }
 
     return (
+
         <div
             style={{
                 marginTop: "30px",
                 padding: "20px",
                 border: "1px solid #555",
                 borderRadius: "10px",
-                width: "400px",
             }}
         >
-            <h2>Prediction Result</h2>
 
-            <p>
-                <strong>Prediction :</strong>{" "}
-                {result.prediction === 1
-                    ? "Fraudulent Transaction"
-                    : "Legitimate Transaction"}
-            </p>
+            <h2>Batch Prediction Summary</h2>
 
-            <p>
-                <strong>Fraud Probability :</strong>{" "}
-                {(result.fraud_probability * 100).toFixed(2)}%
-            </p>
+            <div
+                style={{
+                    display: "flex",
+                    gap: "20px",
+                    marginTop: "20px",
+                    flexWrap: "wrap",
+                }}
+            >
 
-            <p>
-                <strong>Risk Level :</strong>
-            </p>
+                <div
+                    style={{
+                        flex: 1,
+                        minWidth: "160px",
+                        padding: "15px",
+                        border: "1px solid #ddd",
+                        borderRadius: "8px",
+                    }}
+                >
+                    <h3>Total Records</h3>
 
-            <RiskBadge riskLevel={result.risk_level} />
+                    <p
+                        style={{
+                            fontSize: "24px",
+                            fontWeight: "bold",
+                        }}
+                    >
+                        {result.total_records}
+                    </p>
+                </div>
 
-            <p style={{ marginTop: "20px" }}>
-                <strong>Message :</strong>
-            </p>
+                <div
+                    style={{
+                        flex: 1,
+                        minWidth: "160px",
+                        padding: "15px",
+                        border: "1px solid #ddd",
+                        borderRadius: "8px",
+                    }}
+                >
+                    <h3>Fraudulent</h3>
 
-            <p>{result.message}</p>
+                    <p
+                        style={{
+                            fontSize: "24px",
+                            fontWeight: "bold",
+                            color: "#dc2626",
+                        }}
+                    >
+                        {result.fraud_count}
+                    </p>
+                </div>
+
+                <div
+                    style={{
+                        flex: 1,
+                        minWidth: "160px",
+                        padding: "15px",
+                        border: "1px solid #ddd",
+                        borderRadius: "8px",
+                    }}
+                >
+                    <h3>Legitimate</h3>
+
+                    <p
+                        style={{
+                            fontSize: "24px",
+                            fontWeight: "bold",
+                            color: "#16a34a",
+                        }}
+                    >
+                        {result.genuine_count}
+                    </p>
+                </div>
+
+            </div>
+
         </div>
+
     );
+
 }
 
 export default PredictionResult;

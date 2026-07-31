@@ -1,31 +1,33 @@
 function RiskBadge({ riskLevel }) {
-    const badgeStyle = {
-        padding: "8px 16px",
-        borderRadius: "8px",
-        color: "#fff",
-        fontWeight: "bold",
-        display: "inline-block",
-        marginTop: "8px",
-    };
+  const normalizedRiskLevel = riskLevel?.toUpperCase() || "";
 
-    switch (riskLevel) {
-        case "LOW":
-            badgeStyle.backgroundColor = "green";
-            break;
+  const badgeStyle = {
+    padding: "8px 16px",
+    borderRadius: "8px",
+    color: "#fff",
+    fontWeight: "bold",
+    display: "inline-block",
+    marginTop: "8px",
+  };
 
-        case "MEDIUM":
-            badgeStyle.backgroundColor = "orange";
-            break;
+  switch (normalizedRiskLevel) {
+    case "LOW":
+      badgeStyle.backgroundColor = "green";
+      break;
 
-        case "HIGH":
-            badgeStyle.backgroundColor = "red";
-            break;
+    case "MEDIUM":
+      badgeStyle.backgroundColor = "orange";
+      break;
 
-        default:
-            badgeStyle.backgroundColor = "gray";
-    }
+    case "HIGH":
+      badgeStyle.backgroundColor = "red";
+      break;
 
-    return <span style={badgeStyle}>{riskLevel}</span>;
+    default:
+      badgeStyle.backgroundColor = "gray";
+  }
+
+  return <span style={badgeStyle}>{riskLevel}</span>;
 }
 
 export default RiskBadge;

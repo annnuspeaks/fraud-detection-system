@@ -1,24 +1,34 @@
 import { useState } from "react";
 
-import PredictionForm from "../../components/prediction/PredictionForm/PredictionForm";
+import PageContainer from "../../components/layout/PageContainer/PageContainer";
+import CSVUploader from "../../components/prediction/CSVUploader/CSVUploader";
 import PredictionResult from "../../components/prediction/PredictionResult/PredictionResult";
+import PredictionTable from "../../components/prediction/PredictionTable/PredictionTable";
 
-function Prediction() {
-    const [result, setResult] = useState(null);
+const Prediction = () => {
+  const [predictionResult, setPredictionResult] = useState(null);
 
-    return (
-        <>
-            <h1>Fraud Prediction</h1>
+  const handlePredictionComplete = (response) => {
+    setPredictionResult(response);
+  };
 
-            <PredictionForm
-                onPrediction={setResult}
-            />
+  return (
+    <PageContainer>
+      <div className="prediction-page">
+        <CSVUploader
+          onPredictionComplete={handlePredictionComplete}
+          onPredictionError={() => setPredictionResult(null)}
+        />
+        {predictionResult && (
+          <>
+            <PredictionResult result={predictionResult} />
 
-            <PredictionResult
-                result={result}
-            />
-        </>
-    );
-}
+            <PredictionTable predictions={predictionResult.predictions} />
+          </>
+        )}
+      </div>
+    </PageContainer>
+  );
+};
 
 export default Prediction;
