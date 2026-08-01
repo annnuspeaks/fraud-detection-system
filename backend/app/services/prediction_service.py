@@ -182,88 +182,102 @@ class PredictionService:
     def predict_batch(
         dataframe: pd.DataFrame,
     ) -> CSVPredictionResponse:
+        try:
 
-        logger.info(
-            "Batch prediction request received."
-        )
-
-        dataframe = (
-            PredictionService
-            ._validate_csv(
-                dataframe
+            logger.info(
+                "Batch prediction request received."
             )
-        )
 
-        processed_data = (
-            preprocessing_pipeline.transform(
-                dataframe
-            )
-        )
-
-        processed_df = pd.DataFrame(
-            processed_data,
-            columns=feature_columns,
-        )
-
-        predictions = production_model.predict(
-            processed_df
-        )
-
-        probabilities = (
-            production_model.predict_proba(
-                processed_df
-            )[:, 1]
-        )
-
-        results = []
-
-        fraud_count = 0
-
-        for index, (
-            prediction,
-            probability,
-        ) in enumerate(
-            zip(predictions, probabilities),
-            start=1,
-        ):
-
-            prediction = int(prediction)
-            probability = float(probability)
-
-            if prediction == 1:
-                fraud_count += 1
-
-            results.append(
-                CSVPredictionItem(
-                    row=index,
-                    prediction=prediction,
-                    fraud_probability=round(
-                        probability,
-                        4,
-                    ),
-                    risk_level=PredictionService._get_risk_level(
-                        probability
-                    ),
-                    message=PredictionService._get_message(
-                        prediction
-                    ),
+            dataframe = (
+                PredictionService
+                ._validate_csv(
+                    dataframe
                 )
             )
 
-        genuine_count = (
-            len(results) - fraud_count
-        )
+            processed_data = (
+                preprocessing_pipeline.transform(
+                    dataframe
+                )
+            )
 
-        logger.info(
-            "Batch prediction completed. "
-            f"Total={len(results)}, "
-            f"Fraud={fraud_count}, "
-            f"Genuine={genuine_count}"
-        )
+            processed_df = pd.DataFrame(
+                processed_data,
+                columns=feature_columns,
+            )
 
-        return CSVPredictionResponse(
-            total_records=len(results),
-            fraud_count=fraud_count,
-            genuine_count=genuine_count,
-            predictions=results,
-        )
+            predictions = production_model.predict(
+                processed_df
+            )
+
+            probabilities = (
+                production_model.predict_proba(
+                    processed_df
+                )[:, 1]
+            )
+
+            results = []
+
+            fraud_count = 0
+
+            for index, (
+                prediction,
+                probability,
+            ) in enumerate(
+                zip(predictions, probabilities),
+                start=1,
+            ):
+
+                prediction = int(prediction)
+                probability = float(probability)
+
+                if prediction == 1:
+                    fraud_count += 1
+
+                results.append(
+                    CSVPredictionItem(
+                        row=index,
+                        prediction=prediction,
+                        fraud_probability=round(
+                            probability,
+                            4,
+                        ),
+                        risk_level=PredictionService._get_risk_level(
+                            probability
+                        ),
+                        message=PredictionService._get_message(
+                            prediction
+                        ),
+                    )
+                )
+
+            genuine_count = (
+                len(results) - fraud_count
+            )
+
+            logger.info(
+                "Batch prediction completed. "
+                f"Total={len(results)}, "
+                f"Fraud={fraud_count}, "
+                f"Genuine={genuine_count}"
+            )
+
+            return CSVPredictionResponse(
+                total_records=len(results),
+                fraud_count=fraud_count,
+                genuine_count=genuine_count,
+                predictions=results,
+            )
+        
+        except ValueError:
+            raise
+
+        except Exception as e:
+
+            logger.exception(
+                "Prediction pipeline failed."
+            )
+
+            raise RuntimeError(
+                "Prediction pipeline failed."
+            )

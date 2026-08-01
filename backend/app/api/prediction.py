@@ -1,5 +1,6 @@
 from io import StringIO
 from collections import Counter
+from app.core.logger import logger
 
 import pandas as pd
 from fastapi import (
@@ -32,10 +33,15 @@ def predict(
         return PredictionService.predict(request)
 
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=str(e),
+
+        logger.exception(
+            "Unexpected error during CSV prediction."
         )
+
+    raise HTTPException(
+        status_code=500,
+        detail="An unexpected server error occurred. Please try again later."
+    )
 
 
 @router.post(
@@ -113,14 +119,15 @@ async def predict_csv(
         )
 
     except ValueError as e:
-
         raise HTTPException(
             status_code=400,
             detail=str(e),
         )
 
-    except Exception as e:
+    except HTTPException:
+        raise
 
+    except Exception as e:
         raise HTTPException(
             status_code=500,
             detail=f"CSV prediction failed: {str(e)}",

@@ -346,10 +346,20 @@ Fraud Detection System
 │   │       ├── 5.8.3.5 Invalid CSV Scenarios
 │   │       ├── 5.8.3.6 Regression Testing
 │   │       ├── 5.8.3.7 Integration Testing
-│   │       └── 5.8.3.6 Phase Lock
+│   │       └── 5.8.3.8 Phase Lock
 │   │
-│   │   
 │   ├── 5.9 Loading & Error States
+│   │   │
+│   │   ├── 5.9.1 Loading State
+│   │   ├── 5.9.2 Upload Progress UX
+│   │   ├── 5.9.3 Disable Duplicate Requests
+│   │   ├── 5.9.4 Toast Notification System
+│   │   ├── 5.9.5 Success & Error Feedback
+│   │   ├── 5.9.6 Empty State
+│   │   ├── 5.9.7 Network Failure Handling
+│   │   ├── 5.9.8 Backend Failure Handling
+│   │   └── 5.9.9 Phase Lock
+│   │
 │   ├── 5.10 Responsive Design
 │   ├── 5.11 Documentation
 │   ├── 5.12 Frontend Review Session

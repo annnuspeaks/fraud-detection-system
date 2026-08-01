@@ -1,14 +1,19 @@
 import { useRef, useState } from "react";
 import { predictCSV } from "../../../services/predictionService";
+import LoadingCard from "../../common/LoadingCard/LoadingCard";
 
 const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
   const fileInputRef = useRef(null);
+
+  const uploadInProgressRef = useRef(false);
 
   const [selectedFile, setSelectedFile] = useState(null);
 
   const [error, setError] = useState("");
 
   const [loading, setLoading] = useState(false);
+
+  const [retryMode, setRetryMode] = useState(false);
 
   const handleBrowseClick = () => {
     fileInputRef.current.click();
@@ -30,7 +35,7 @@ const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
     const MAX_SIZE = 25 * 1024 * 1024;
 
     if (file.size > MAX_SIZE) {
-        return "Maximum allowed file size is 25 MB.";
+      return "Maximum allowed file size is 25 MB.";
     }
 
     return "";
@@ -53,18 +58,28 @@ const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
 
     setSelectedFile(file);
 
+    setRetryMode(false);
+
     event.target.value = "";
   };
 
   const handleUpload = async () => {
-    if (!selectedFile || loading) return;
+    if (!selectedFile || uploadInProgressRef.current) return;
+
+    uploadInProgressRef.current = true;
 
     setLoading(true);
+
+    setError("");
+
+    // onPredictionError?.();
 
     try {
       const response = await predictCSV(selectedFile);
 
       onPredictionComplete(response);
+
+      setRetryMode(false);
 
       setSelectedFile(null);
 
@@ -72,20 +87,76 @@ const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
 
       setError("");
     } catch (error) {
-      let message = "Prediction failed.";
 
-      const detail = error.response?.data?.detail;
+        let message = "Prediction failed.";
 
-      if (Array.isArray(detail)) {
-        message = detail.map((item) => item.msg).join(", ");
-      } else if (typeof detail === "string") {
-        message = detail;
-      }
+        // Internet disconnected
+        if (!navigator.onLine) {
 
-      setError(message);
+            message =
+                "No internet connection. Please check your network.";
 
-      onPredictionError?.();
+        }
+
+        // Request timeout
+        else if (error.code === "ECONNABORTED") {
+
+            message =
+                "The server is taking too long to respond. Please try again.";
+
+        }
+
+        // Backend not reachable
+        else if (!error.response) {
+
+            message =
+                "Unable to connect to the server. Please ensure the backend is running.";
+
+        }
+
+        // Validation errors
+        else if (error.response.status === 400) {
+
+            const detail = error.response.data?.detail;
+
+            if (Array.isArray(detail)) {
+
+                message = detail.map(item => item.msg).join(", ");
+
+            }
+
+            else if (typeof detail === "string") {
+
+                message = detail;
+
+            }
+
+        }
+
+        // Internal server error
+        else if (error.response.status === 500) {
+
+            message =
+                "Internal server error. Please try again later.";
+
+        }
+
+        // Endpoint missing
+        else if (error.response.status === 404) {
+
+            message =
+                "Prediction service is unavailable.";
+
+        }
+
+        setError(message);
+
+        setRetryMode(true);
+
+        onPredictionError?.(message);
+
     } finally {
+      uploadInProgressRef.current = false;
       setLoading(false);
     }
   };
@@ -110,6 +181,8 @@ const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
 
       {selectedFile && <div className="selected-file">{selectedFile.name}</div>}
 
+      {loading && <LoadingCard />}
+
       {error && (
         <div
           className="upload-error"
@@ -123,12 +196,28 @@ const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
         </div>
       )}
 
+      {retryMode && !loading && (
+        <div
+          style={{
+            marginTop: "8px",
+            color: "#fbbf24",
+            fontSize: "13px",
+          }}
+        >
+          Retry using the same file.
+        </div>
+      )}
+
       <button
         type="button"
         disabled={!selectedFile || loading}
         onClick={handleUpload}
       >
-        {loading ? "Uploading..." : "Upload & Predict"}
+        {loading
+          ? "Processing..."
+          : retryMode
+            ? "Retry Prediction"
+            : "Upload & Predict"}
       </button>
     </div>
   );

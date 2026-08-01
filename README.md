@@ -454,3 +454,50 @@ Extensively validate the Batch Prediction pipeline against valid, invalid, malfo
 ## Result
 
 The Batch Prediction module has been validated against a wide range of realistic and edge-case scenarios and is considered production-ready for CSV input validation.
+
+## ✅ Loading & Error States
+
+The Prediction module has been enhanced with enterprise-grade loading, retry, notification, and error handling capabilities.
+
+### Features Implemented
+
+- Animated loading state during prediction
+- Duplicate request prevention
+- Floating toast notification system
+- Success & failure feedback
+- Retry prediction without re-uploading CSV
+- Network failure handling
+- Backend failure handling
+- Global exception handling
+- Safe HTTP 500 responses
+- ML artifact protection
+- User-friendly validation messages
+
+### Error Handling Covered
+
+- Missing required columns
+- Duplicate columns
+- Invalid delimiter
+- Invalid file format
+- Corrupted CSV
+- Empty CSV
+- Blank rows
+- Missing values
+- Infinite values
+- Scientific notation support
+- Large file validation
+- Large dataset validation
+- Network disconnect
+- Backend unavailable
+- HTTP 400 / 404 / 500
+- Request timeout
+- Retry workflow
+
+### Architecture Improvements
+
+- Centralized error handling
+- Global backend exception handler
+- Improved logging
+- Retry-enabled frontend
+- Toast-driven user feedback
+- Production-ready loading workflow
