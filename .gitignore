@@ -242,3 +242,6 @@ Thumbs.db
 data/final/
 
 *.zip
+
+# Testing datasets
+scripts/large_datasets/

@@ -390,3 +390,67 @@ The application follows a layered architecture separating pages, reusable compon
 - Risk-level visualization
 - Detailed prediction table
 - Enterprise-ready frontend/backend integration
+
+---
+
+# Batch Prediction Validation & Robustness Testing
+
+## Objective
+
+Extensively validate the Batch Prediction pipeline against valid, invalid, malformed, and edge-case CSV files to ensure production-ready input validation and reliable error handling.
+
+## Validation Scenarios Completed
+
+### File Validation
+
+- ✅ Valid CSV upload
+- ✅ Invalid file type rejection (.txt, .xlsx, etc.)
+- ✅ Empty CSV detection
+- ✅ Header-only CSV detection
+
+### Data Validation
+
+- ✅ Missing values detection
+- ✅ Invalid numeric values
+- ✅ Mixed valid and invalid values
+- ✅ Corrupted CSV parsing
+- ✅ Corrupted quotation handling
+- ✅ Wrong delimiter detection
+- ✅ Scientific notation support
+- ✅ Blank row handling
+
+### Schema Validation
+
+- ✅ Missing required column detection
+- ✅ Multiple missing columns detection
+- ✅ Duplicate column detection
+- ✅ Duplicate header validation
+
+### Performance & Limits
+
+- ✅ 1,000-row dataset
+- ✅ 10,000-row dataset
+- ✅ 50,000-row dataset
+- ✅ 100,000-row dataset
+- ✅ Maximum row limit validation
+
+### User Experience Validation
+
+- ✅ Upload button enable/disable logic
+- ✅ Validation messages displayed correctly
+- ✅ HTTP 400 responses handled gracefully
+- ✅ Backend validation errors surfaced to the UI
+
+## Improvements Made
+
+- Added duplicate header validation.
+- Improved required-column validation.
+- Added maximum row limit enforcement.
+- Added maximum file-size validation.
+- Improved CSV parsing robustness.
+- Improved frontend validation feedback.
+- Added comprehensive malformed CSV handling.
+
+## Result
+
+The Batch Prediction module has been validated against a wide range of realistic and edge-case scenarios and is considered production-ready for CSV input validation.

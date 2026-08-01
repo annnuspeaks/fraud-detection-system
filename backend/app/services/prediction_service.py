@@ -96,6 +96,18 @@ class PredictionService:
             required_columns
         ].copy()
 
+        
+        # Remove completely empty rows
+        dataframe = dataframe.dropna(
+            how="all"
+        )
+
+        # If nothing remains after removing blank rows
+        if dataframe.empty:
+            raise ValueError(
+                "Uploaded CSV is empty."
+            )
+
         if dataframe.isnull().any().any():
 
             raise ValueError(

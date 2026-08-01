@@ -27,10 +27,10 @@ const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
       return "Selected file is empty.";
     }
 
-    const MAX_SIZE = 10 * 1024 * 1024;
+    const MAX_SIZE = 25 * 1024 * 1024;
 
     if (file.size > MAX_SIZE) {
-      return "Maximum allowed file size is 10 MB.";
+        return "Maximum allowed file size is 25 MB.";
     }
 
     return "";

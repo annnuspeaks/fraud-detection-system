@@ -334,17 +334,18 @@ Fraud Detection System
 │   │   │   ├── 5.8B.8 Batch Result Summary
 │   │   │   ├── 5.8B.9 Prediction Table
 │   │   │   ├── 5.8B.10 Error Handling
-<!-- │   │   │   ├── 5.8B.11 Responsive Polish -->
-│   │   │   ├── 5.8B.12 Frontend Verification
-│   │   │   └── 5.8B.13 Phase Lock
+│   │   │   ├── 5.8B.11 Frontend Verification
+│   │   │   └── 5.8B.12 Phase Lock
 │   │   │
 │   │   └── 5.8.3 End-to-End Verification
 │   │       │
-│   │       ├── 5.8.3.1 Backend–Frontend Contract Verification
-│   │       ├── 5.8.3.2 End-to-End Testing
-│   │       ├── 5.8.3.3 UX Polish
-│   │       ├── 5.8.3.4 Performance Check
-│   │       ├── 5.8.3.5 Final Integration Verification
+│   │       ├── 5.8.3.1 End-to-End Workflow Audit
+│   │       ├── 5.8.3.2 API Contract Verification
+│   │       ├── 5.8.3.3 Empty Dataset Handling
+│   │       ├── 5.8.3.4 Large File Handling
+│   │       ├── 5.8.3.5 Invalid CSV Scenarios
+│   │       ├── 5.8.3.6 Regression Testing
+│   │       ├── 5.8.3.7 Integration Testing
 │   │       └── 5.8.3.6 Phase Lock
 │   │
 │   │   
