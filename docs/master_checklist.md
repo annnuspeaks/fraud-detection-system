@@ -387,6 +387,39 @@ Fraud Detection System
 │   │   └── 5.10.8 Responsive Lock
 │   │
 │   ├── 5.11 Documentation
+│   │   │
+│   │   ├── 5.11.1 Documentation Architecture
+│   │   │   ├── 5.11.1.1 Repository Documentation Strategy
+│   │   │   ├── 5.11.1.2 frontend/README.md Strategy
+│   │   │   ├── 5.11.1.3 frontend/docs/frontend.md Strategy
+│   │   │   ├── 5.11.1.4 Documentation Standards Strategy
+│   │   │   └── 5.11.1.5 Architecture Lock
+│   │   │
+│   │   ├── 5.11.2 Frontend Documentation
+│   │   │   ├── 5.11.2.1 frontend/README.md
+│   │   │   ├── 5.11.2.2 frontend/docs/frontend.md
+│   │   │   ├── 5.11.2.3 Documentation Review
+│   │   │   ├── 5.11.2.4 Documentation Polish
+│   │   │   └── 5.11.2.5 Documentation Lock
+│   │   │
+│   │   ├── 5.11.3 backend Documentation
+│   │   │   ├── 5.11.3.1 backend/README.md
+│   │   │   ├── 5.11.3.2 backend/docs/backend.md
+│   │   │   ├── 5.11.3.3 Documentation Review
+│   │   │   ├── 5.11.3.4 Documentation Polish
+│   │   │   └── 5.11.3.5 Documentation Lock
+│   │   │
+│   │   ├── 5.11.3 README Documentation
+│   │   │   ├── 5.11.3.1 Quick Overview
+│   │   │   ├── 5.11.3.2 Installation
+│   │   │   ├── 5.11.3.3 Development Commands
+│   │   │   ├── 5.11.3.4 Project Structure
+│   │   │   ├── 5.11.3.5 Documentation Links
+│   │   │   └── 5.11.3.6 README Lock
+│   │   │
+│   │   ├── 5.11.4 Documentation Review
+│   │   └── 5.11.5 Documentation Lock
+│   │
 │   ├── 5.12 Frontend Review Session
 │   └── 5.13 Phase Lock
 │
