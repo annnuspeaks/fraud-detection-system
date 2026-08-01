@@ -361,6 +361,31 @@ Fraud Detection System
 │   │   └── 5.9.9 Phase Lock
 │   │
 │   ├── 5.10 Responsive Design
+│   │   │
+│   │   ├── 5.10.1 Responsive Audit 
+│   │   ├── 5.10.2 Responsive Layout & Component Adaptation
+│   │   ├── 5.10.3 Typography Scaling
+│   │   ├── 5.10.4 Component Responsiveness
+│   │   │   │ 
+│   │   │   ├── 5.10.4.1 CSVUploader
+│   │   │   ├── 5.10.4.2 Prediction Summary Cards
+│   │   │   ├── 5.10.4.3 Prediction Table Wrapper
+│   │   │   ├── 5.10.4.4 Toast
+│   │   │   ├── 5.10.4.5 Loading Card
+│   │   │   └── 5.10.4.6 Review and Lock
+│   │   │
+│   │   ├── 5.10.5 Table Responsiveness
+│   │   │   │ 
+│   │   │   ├── 5.10.5.1 Global Page Layout
+│   │   │   ├── 5.10.5.2 Section Spacing
+│   │   │   ├── 5.10.5.3 Overflow Validation
+│   │   │   ├── 5.10.5.4 Breakpoint Validation
+│   │   │   └── 5.10.5.5 Layout Lock
+│   │   │
+│   │   ├── 5.10.6 Small Device Testing
+│   │   ├── 5.10.7 Large Screen Testing
+│   │   └── 5.10.8 Responsive Lock
+│   │
 │   ├── 5.11 Documentation
 │   ├── 5.12 Frontend Review Session
 │   └── 5.13 Phase Lock
@@ -387,7 +412,7 @@ Fraud Detection System
 │   ├── 8.3 README Finalization
 │   ├── 8.4 Architecture Diagram
 │   ├── 8.5 Resume Bullet Points
-│   └──  8.6 LinkedIn Ready Assets
+│   └── 8.6 LinkedIn Ready Assets
 │
 └── Phase 9 : Project Completion
     │
@@ -400,7 +425,7 @@ Fraud Detection System
 
 
 
-    docs/
+docs/
 │
 ├── architecture.md
 ├── deployment.md

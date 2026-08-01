@@ -1,0 +1,154 @@
+/* ==========================================
+   Prediction Table Layout
+========================================== */
+
+.prediction-table-wrapper {
+    margin-top: 30px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.prediction-table-wrapper h2 {
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.prediction-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.table-header {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 2px solid #444;
+    font-weight: 600;
+}
+
+.table-cell {
+    padding: 18px 20px;
+    border-bottom: 1px solid #333;
+    vertical-align: middle;
+}
+
+/* Alignment */
+
+.column-row {
+    text-align: center;
+}
+
+.column-prediction {
+    text-align: left;
+}
+
+.column-probability {
+    text-align: right;
+}
+
+.column-risk {
+    text-align: center;
+}
+
+.column-message {
+    text-align: left;
+}
+
+/* ==========================================
+   Typography
+========================================== */
+
+.prediction-table th {
+
+    font-size: var(--fs-body);
+    font-weight: 600;
+    line-height: 1.4;
+
+}
+
+.prediction-table td {
+
+    font-size: var(--fs-small);
+    line-height: 1.6;
+
+}
+
+/* ---------- Numeric Alignment ---------- */
+
+.column-row,
+.column-probability {
+
+    font-variant-numeric: tabular-nums;
+
+}
+
+/* ---------- Message Column ---------- */
+
+.column-message {
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+
+}
+
+/* ==========================================
+   Responsive Typography
+========================================== */
+
+@media (max-width: 768px) {
+
+    .prediction-table th {
+
+        font-size: var(--fs-small);
+
+    }
+
+    .prediction-table td {
+
+        font-size: var(--fs-small);
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .prediction-table th,
+    .prediction-table td {
+
+        line-height: 1.5;
+
+    }
+
+}
+
+/* ==========================================
+   Responsive Components
+========================================== */
+
+@media (max-width: 768px) {
+
+    .prediction-table {
+
+        min-width: 720px;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .prediction-table-wrapper {
+
+        border-radius: 8px;
+
+    }
+
+    .table-header,
+    .table-cell {
+
+        padding: 14px 16px;
+
+    }
+
+}

@@ -177,3 +177,54 @@
     }
 
 }
+
+/* ==========================================
+   Responsive Components
+========================================== */
+
+@media (max-width: 768px) {
+
+    .loading-card {
+
+        padding: 20px;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .loading-card {
+
+        padding: 16px;
+        gap: 12px;
+
+    }
+
+    .loading-spinner {
+
+        width: 46px;
+        height: 46px;
+        border-width: 4px;
+
+    }
+
+    .loading-title {
+
+        font-size: var(--fs-heading);
+
+    }
+
+    .loading-subtitle {
+
+        font-size: var(--fs-body);
+
+    }
+
+    .loading-note {
+
+        font-size: var(--fs-small);
+
+    }
+
+}

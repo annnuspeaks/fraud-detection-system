@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { predictCSV } from "../../../services/predictionService";
 import LoadingCard from "../../common/LoadingCard/LoadingCard";
+import "./CSVUploader.css";
 
 const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
   const fileInputRef = useRef(null);
@@ -184,26 +185,13 @@ const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
       {loading && <LoadingCard />}
 
       {error && (
-        <div
-          className="upload-error"
-          style={{
-            color: "#dc2626",
-            marginTop: "10px",
-            fontSize: "14px",
-          }}
-        >
+        <div className="upload-error">
           {error}
         </div>
       )}
 
       {retryMode && !loading && (
-        <div
-          style={{
-            marginTop: "8px",
-            color: "#fbbf24",
-            fontSize: "13px",
-          }}
-        >
+        <div className="retry-message">
           Retry using the same file.
         </div>
       )}

@@ -113,3 +113,53 @@
     }
 
 }
+
+/* ==========================================
+   Responsive Components
+========================================== */
+
+@media (max-width: 768px) {
+
+    .toast {
+
+        width: min(340px, calc(100vw - 32px));
+        top: 16px;
+        right: 16px;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .toast {
+
+        width: calc(100vw - 24px);
+        top: 12px;
+        right: 12px;
+        padding: 16px;
+        gap: 12px;
+
+    }
+
+    .toast-icon {
+
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+
+    }
+
+    .toast-content h4 {
+
+        font-size: var(--fs-body);
+
+    }
+
+    .toast-content p {
+
+        font-size: var(--fs-small);
+
+    }
+
+}

@@ -1,3 +1,5 @@
+import "./PredictionResult.css";
+
 function PredictionResult({ result }) {
 
     if (!result) {
@@ -6,87 +8,35 @@ function PredictionResult({ result }) {
 
     return (
 
-        <div
-            style={{
-                marginTop: "30px",
-                padding: "20px",
-                border: "1px solid #555",
-                borderRadius: "10px",
-            }}
-        >
+        <div className="prediction-result">
 
             <h2>Batch Prediction Summary</h2>
 
-            <div
-                style={{
-                    display: "flex",
-                    gap: "20px",
-                    marginTop: "20px",
-                    flexWrap: "wrap",
-                }}
-            >
+            <div className="prediction-summary-grid">
 
-                <div
-                    style={{
-                        flex: 1,
-                        minWidth: "160px",
-                        padding: "15px",
-                        border: "1px solid #ddd",
-                        borderRadius: "8px",
-                    }}
-                >
+                <div className="summary-card">
+
                     <h3>Total Records</h3>
 
-                    <p
-                        style={{
-                            fontSize: "24px",
-                            fontWeight: "bold",
-                        }}
-                    >
+                    <p className="summary-value">
                         {result.total_records}
                     </p>
                 </div>
 
-                <div
-                    style={{
-                        flex: 1,
-                        minWidth: "160px",
-                        padding: "15px",
-                        border: "1px solid #ddd",
-                        borderRadius: "8px",
-                    }}
-                >
+                <div className="summary-card">
+
                     <h3>Fraudulent</h3>
 
-                    <p
-                        style={{
-                            fontSize: "24px",
-                            fontWeight: "bold",
-                            color: "#dc2626",
-                        }}
-                    >
+                    <p className="summary-value fraud-value">
                         {result.fraud_count}
                     </p>
                 </div>
 
-                <div
-                    style={{
-                        flex: 1,
-                        minWidth: "160px",
-                        padding: "15px",
-                        border: "1px solid #ddd",
-                        borderRadius: "8px",
-                    }}
-                >
+                <div className="summary-card">
+
                     <h3>Legitimate</h3>
 
-                    <p
-                        style={{
-                            fontSize: "24px",
-                            fontWeight: "bold",
-                            color: "#16a34a",
-                        }}
-                    >
+                    <p className="summary-value genuine-value">
                         {result.genuine_count}
                     </p>
                 </div>
