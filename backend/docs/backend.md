@@ -267,7 +267,7 @@ This ensures only valid data reaches the prediction layer.
 
 The backend integrates a trained LightGBM model for fraud prediction.
 
-The model is loaded by the prediction service and used to generate fraud classifications and associated probabilities. :contentReference[oaicite:1]{index=1}
+The model is loaded by the prediction service and used to generate fraud classifications and associated probabilities. 
 
 ---
 
@@ -279,7 +279,7 @@ FastAPI automatically generates interactive documentation through:
 - ReDoc
 - OpenAPI Specification
 
-These interfaces simplify API exploration and testing during development. :contentReference[oaicite:2]{index=2}
+These interfaces simplify API exploration and testing during development.
 
 ---
 
