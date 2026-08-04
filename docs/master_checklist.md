@@ -484,12 +484,46 @@ Fraud Detection System
 ├── Phase 7 : Deployment
 │   │
 │   ├── 7.1 Docker
+│   │   │
 │   │   ├── 7.1.1 Backend Docker
 │   │   ├── 7.1.2 Frontend Docker
 │   │   ├── 7.1.3 .dockerignore
 │   │   ├── 7.1.4 Docker Build Testing
 │   │   └── 7.1.5 Phase Lock
+│   │
 │   ├── 7.2 Docker Compose
+│   │   │
+│   │   ├── 7.2.1 Architecture Planning
+│   │   │   ├── 7.2.1.1 Final deployment architecture
+│   │   │   ├── 7.2.1.2 Network design
+│   │   │   └── 7.2.1.3 Folder verification
+│   │   │
+│   │   ├── 7.2.2 Backend Compose Service
+│   │   │   ├── 7.2.2.1 Backend service
+│   │   │   ├── 7.2.2.2 Ports
+│   │   │   └── 7.2.2.3 Restart policy
+│   │   │
+│   │   ├── 7.2.3 Frontend Compose Service
+│   │   │   ├── 7.2.3.1 Frontend service
+│   │   │   ├── 7.2.3.2 Dockerfile integration
+│   │   │   └── 7.2.3.3 Port mapping
+│   │   │
+│   │   ├── 7.2.4 Shared Networking
+│   │   │   ├── 7.2.4.1 Docker bridge network
+│   │   │   └── 7.2.4.2 Service-to-service communication
+│   │   │
+│   │   ├── 7.2.5 Volume & Environment Configuration
+│   │   │   ├── 7.2.5.1 Environment variables
+│   │   │   └── 7.2.5.2 Optional persistent volumes
+│   │   │
+│   │   ├── 7.2.6 Compose Validation
+│   │   │   ├── 7.2.6.1 docker compose up --build
+│   │   │   ├── 7.2.6.2 Verify frontend
+│   │   │   ├── 7.2.6.3 Verify backend
+│   │   │   └── 7.2.6.4 Verify API communication
+│   │   │
+│   │   └── 7.2.7 Phase Lock
+│   │
 │   ├── 7.3 Cloud Deployment
 │   ├── 7.4 Environment Variables
 │   └── 7.5 Production Testing

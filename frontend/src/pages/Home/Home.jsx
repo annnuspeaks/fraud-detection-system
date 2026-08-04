@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { checkHealth } from "../../services/predictionService";
 import "./Home.css";
 
+
 function Home() {
   useEffect(() => {
     const testAPI = async () => {

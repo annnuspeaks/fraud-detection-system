@@ -539,3 +539,22 @@ Features:
 - Health endpoint verified
 - Prediction endpoint verified
 - Production-ready Docker image
+
+### Docker Networking
+
+Frontend and backend communicate through a dedicated Docker bridge network.
+
+Backend Service Name:
+- backend
+
+Docker automatically resolves the backend service using its service name instead of localhost.
+
+---
+
+## Environment Variables
+
+### Frontend
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| VITE_API_BASE_URL | Backend API Base URL | http://localhost:8000 |

@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  backend:
+    container_name: fraud-backend
+
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+
+    ports:
+      - "8000:8000"
+
+    restart: unless-stopped
+
+    networks:
+      - fraud-network
+
+  frontend:
+    container_name: fraud-frontend
+
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+
+    ports:
+      - "3000:80"
+
+    networks:
+      - fraud-network
+
+networks:
+  fraud-network:
+    driver: bridge
