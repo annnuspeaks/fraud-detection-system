@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Prediction.css";
 
 import PageContainer from "../../components/layout/PageContainer/PageContainer";
 import CSVUploader from "../../components/prediction/CSVUploader/CSVUploader";
@@ -31,43 +32,66 @@ const Prediction = () => {
 
   return (
     <PageContainer>
-      <div className="prediction-page">
+      <section className="prediction-page">
+        {" "}
         <CSVUploader
           onPredictionComplete={handlePredictionComplete}
-          onPredictionError={(message) => 
-              setToast({
+          onPredictionError={(message) =>
+            setToast({
+              show: true,
 
-                show:true,
+              type: "error",
 
-                type:"error",
+              title: "Prediction Failed",
 
-                title:"Prediction Failed",
+              message: message,
+            })
+          }
+        />
+        {predictionResult ? (
 
-                message:message,
-              })
+    <>
+
+        <Toast
+            show={toast.show}
+            type={toast.type}
+            title={toast.title}
+            message={toast.message}
+            onClose={() =>
+                setToast(prev => ({
+                    ...prev,
+                    show: false,
+                }))
             }
         />
-        {predictionResult && (
-          <>
-            <Toast
-              show={toast.show}
-              type={toast.type}
-              title={toast.title}
-              message={toast.message}
-              onClose={() =>
-                  setToast(prev => ({
-                      ...prev,
-                      show:false,
-                  }))
-              }
-          />
 
-            <PredictionResult result={predictionResult} />
+        <PredictionResult result={predictionResult} />
 
-            <PredictionTable predictions={predictionResult.predictions} />
-          </>
-        )}
-      </div>
+        <PredictionTable predictions={predictionResult.predictions} />
+
+    </>
+
+) : (
+
+    <section className="prediction-empty-state">
+
+        <div className="empty-state-icon">
+            🛡️
+        </div>
+
+        <h2>No Prediction Yet</h2>
+
+        <p>
+
+            Upload a CSV dataset above to analyze transactions using
+            our AI-powered fraud detection model.
+
+        </p>
+
+    </section>
+
+)}
+      </section>
     </PageContainer>
   );
 };

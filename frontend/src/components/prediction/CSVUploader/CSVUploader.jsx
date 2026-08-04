@@ -88,74 +88,50 @@ const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
 
       setError("");
     } catch (error) {
+      let message = "Prediction failed.";
 
-        let message = "Prediction failed.";
+      // Internet disconnected
+      if (!navigator.onLine) {
+        message = "No internet connection. Please check your network.";
+      }
 
-        // Internet disconnected
-        if (!navigator.onLine) {
+      // Request timeout
+      else if (error.code === "ECONNABORTED") {
+        message = "The server is taking too long to respond. Please try again.";
+      }
 
-            message =
-                "No internet connection. Please check your network.";
+      // Backend not reachable
+      else if (!error.response) {
+        message =
+          "Unable to connect to the server. Please ensure the backend is running.";
+      }
 
+      // Validation errors
+      else if (error.response.status === 400) {
+        const detail = error.response.data?.detail;
+
+        if (Array.isArray(detail)) {
+          message = detail.map((item) => item.msg).join(", ");
+        } else if (typeof detail === "string") {
+          message = detail;
         }
+      }
 
-        // Request timeout
-        else if (error.code === "ECONNABORTED") {
+      // Internal server error
+      else if (error.response.status === 500) {
+        message = "Internal server error. Please try again later.";
+      }
 
-            message =
-                "The server is taking too long to respond. Please try again.";
+      // Endpoint missing
+      else if (error.response.status === 404) {
+        message = "Prediction service is unavailable.";
+      }
 
-        }
+      setError(message);
 
-        // Backend not reachable
-        else if (!error.response) {
+      setRetryMode(true);
 
-            message =
-                "Unable to connect to the server. Please ensure the backend is running.";
-
-        }
-
-        // Validation errors
-        else if (error.response.status === 400) {
-
-            const detail = error.response.data?.detail;
-
-            if (Array.isArray(detail)) {
-
-                message = detail.map(item => item.msg).join(", ");
-
-            }
-
-            else if (typeof detail === "string") {
-
-                message = detail;
-
-            }
-
-        }
-
-        // Internal server error
-        else if (error.response.status === 500) {
-
-            message =
-                "Internal server error. Please try again later.";
-
-        }
-
-        // Endpoint missing
-        else if (error.response.status === 404) {
-
-            message =
-                "Prediction service is unavailable.";
-
-        }
-
-        setError(message);
-
-        setRetryMode(true);
-
-        onPredictionError?.(message);
-
+      onPredictionError?.(message);
     } finally {
       uploadInProgressRef.current = false;
       setLoading(false);
@@ -163,51 +139,57 @@ const CSVUploader = ({ onPredictionComplete, onPredictionError }) => {
   };
 
   return (
-    <div className="csv-uploader">
-      <h2>Fraud Detection</h2>
+    <section className="csv-uploader">
+      <div className="upload-card">
+        <div className="upload-icon">📁</div>
+        <h2>Upload Transaction Dataset</h2>
+        <p>
+          Upload your transaction dataset and let our AI model detect fraudulent
+          activities in seconds.
+        </p>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".csv"
+          hidden
+          onChange={handleFileChange}
+        />
+        <div className="upload-actions">
+          <button
+            className="browse-btn"
+            type="button"
+            onClick={handleBrowseClick}
+            disabled={loading}
+          >
+            📂 Choose CSV File
+          </button>
 
-      <p>Upload a CSV file for batch fraud prediction.</p>
-
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept=".csv"
-        hidden
-        onChange={handleFileChange}
-      />
-
-      <button type="button" onClick={handleBrowseClick} disabled={loading}>
-        Choose CSV File
-      </button>
-
-      {selectedFile && <div className="selected-file">{selectedFile.name}</div>}
-
-      {loading && <LoadingCard />}
-
-      {error && (
-        <div className="upload-error">
-          {error}
+          <button
+            className="predict-btn"
+            type="button"
+            disabled={!selectedFile || loading}
+            onClick={handleUpload}
+          >
+            {loading ? (
+              <>
+                <span className="button-spinner"></span>
+                Predicting...
+              </>
+            ) : (
+              <>🚀 Upload & Predict</>
+            )}
+          </button>
         </div>
-      )}
-
-      {retryMode && !loading && (
-        <div className="retry-message">
-          Retry using the same file.
-        </div>
-      )}
-
-      <button
-        type="button"
-        disabled={!selectedFile || loading}
-        onClick={handleUpload}
-      >
-        {loading
-          ? "Processing..."
-          : retryMode
-            ? "Retry Prediction"
-            : "Upload & Predict"}
-      </button>
-    </div>
+        {selectedFile && (
+          <div className="selected-file">✅ {selectedFile.name}</div>
+        )}
+        {loading && <LoadingCard />}
+        {error && <div className="upload-error">{error}</div>}
+        {retryMode && !loading && (
+          <div className="retry-message">Retry using the same file.</div>
+        )}{" "}
+      </div>
+    </section>
   );
 };
 

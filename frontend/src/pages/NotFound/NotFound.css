@@ -1,0 +1,139 @@
+.not-found {
+    min-height: 70vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+.not-found-card {
+    width: 100%;
+
+    max-width: 700px;
+
+    padding: 56px 40px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.015)
+    );
+
+    backdrop-filter: blur(10px);
+
+    animation: fadeUp 0.5s ease;
+    transition: var(--transition);
+}
+
+.not-found-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #22c55e;
+
+    box-shadow: 0 14px 36px rgba(34, 197, 94, 0.1);
+}
+
+.error-code {
+    font-size: 6rem;
+
+    font-weight: 800;
+
+    color: #22c55e;
+
+    line-height: 1;
+
+    animation: float404 3s ease-in-out infinite;
+}
+
+.not-found-card h1 {
+    margin: 24px 0 16px;
+
+    color: #ffffff;
+}
+
+.not-found-card p {
+    max-width: 520px;
+
+    margin: 0 auto 36px;
+
+    color: #9ca3af;
+
+    line-height: 1.8;
+}
+
+.home-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 14px 28px;
+
+    border-radius: var(--radius-md);
+
+    background: #22c55e;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition:
+        background var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.home-button:hover {
+    transform: translateY(-3px);
+
+    background: #16a34a;
+    box-shadow: 0 10px 28px rgba(34, 197, 94, 0.25);
+}
+
+@keyframes float404 {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .not-found-card {
+        padding: 36px 20px;
+    }
+
+    .error-code {
+        font-size: 4.5rem;
+    }
+}

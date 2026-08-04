@@ -457,9 +457,11 @@ Fraud Detection System
 │   │   │   └── 5.12.5.5 Lock
 │   │   │
 │   │   ├── 5.12.6 Footer
-│   │   │   ├── 5.12.6.1 Professional Footer
-│   │   │   ├── 5.12.6.2 Copyright
-│   │   │   └── 5.12.6.3 Lock
+│   │   │   ├── 5.12.6.1 Structure
+│   │   │   ├── 5.12.6.2 AI Portfolio Links
+│   │   │   ├── 5.12.6.3 Social Contacts
+│   │   │   ├── 5.12.6.4 Responsive Polish
+│   │   │   └── 5.12.6.5 Lock
 │   │   │
 │   │   ├── 5.12.7 Not Found Page
 │   │   │   ├── 5.12.7.1 Modern 404 Design

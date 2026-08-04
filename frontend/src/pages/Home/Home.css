@@ -67,7 +67,7 @@
     overflow: hidden;
     padding: 14px 28px;
     position: relative;
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     letter-spacing: 0.2px;
     text-decoration: none;
 
@@ -75,10 +75,10 @@
     font-weight: 600;
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
 }
 
 .hero__button:hover {
@@ -165,7 +165,7 @@
     grid-template-columns: repeat(3, minmax(280px, 1fr));
     gap: 28px;
 
-    max-width: 1280px;
+    max-width: var(--container-width);
 
     margin: 0 auto;
     padding: 48px 80px 0;
@@ -176,13 +176,12 @@
 
     border: 1px solid #313131;
 
-    border-radius: 18px;
-
+    border-radius: var(--radius-md);
     padding: 32px;
 
     text-align: center;
 
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .feature-card:hover {
@@ -242,8 +241,7 @@
 }
 
 .workflow {
-    max-width: 1200px;
-
+    max-width: var(--container-width);
     margin: 100px auto 0;
 
     text-align: center;
@@ -276,13 +274,12 @@
 
     padding: 36px 28px;
 
-    border-radius: 20px;
-
+    border-radius: var(--radius-lg);
     border: 1px solid #303030;
 
     background: #202020;
 
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .workflow-card:hover {
@@ -338,7 +335,6 @@
 =========================== */
 
 @media (max-width: 1024px) {
-
     .hero {
         max-width: 760px;
     }
@@ -356,7 +352,6 @@
         max-width: 420px;
         margin: 0 auto;
     }
-
 }
 
 /* ===========================
@@ -364,7 +359,6 @@
 =========================== */
 
 @media (max-width: 768px) {
-
     .hero {
         max-width: 640px;
     }
@@ -390,7 +384,6 @@
         grid-column: auto;
         max-width: 100%;
     }
-
 }
 
 /* ===========================
@@ -398,7 +391,6 @@
 =========================== */
 
 @media (max-width: 480px) {
-
     .home {
         padding: 24px 16px 48px;
     }
@@ -408,12 +400,11 @@
     }
 
     .hero__description {
-        font-size: .95rem;
+        font-size: 0.95rem;
     }
 
     .feature-card,
     .workflow-card {
         padding: 28px 20px;
     }
-
 }
