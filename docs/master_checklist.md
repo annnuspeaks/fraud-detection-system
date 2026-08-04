@@ -484,6 +484,11 @@ Fraud Detection System
 ├── Phase 7 : Deployment
 │   │
 │   ├── 7.1 Docker
+│   │   ├── 7.1.1 Backend Docker
+│   │   ├── 7.1.2 Frontend Docker
+│   │   ├── 7.1.3 .dockerignore
+│   │   ├── 7.1.4 Docker Build Testing
+│   │   └── 7.1.5 Phase Lock
 │   ├── 7.2 Docker Compose
 │   ├── 7.3 Cloud Deployment
 │   ├── 7.4 Environment Variables

@@ -523,3 +523,19 @@ The Prediction module has been enhanced with enterprise-grade loading, retry, no
 - Reusable UI components.
 - Professional error handling.
 - Clean component-based architecture.
+
+---
+
+### Docker Support
+
+The backend is fully containerized using Docker.
+
+Features:
+- Python 3.12 Slim Base Image
+- Production dependency installation
+- ML artifacts bundled inside container
+- Linux runtime dependencies installed
+- FastAPI served through Uvicorn
+- Health endpoint verified
+- Prediction endpoint verified
+- Production-ready Docker image
