@@ -525,6 +525,31 @@ Fraud Detection System
 │   │   └── 7.2.7 Phase Lock
 │   │
 │   ├── 7.3 Cloud Deployment
+
+7.3.1 Deployment Architecture
+    7.3.1.1 Platform selection
+    7.3.1.2 Deployment strategy
+    7.3.1.3 Environment planning
+
+7.3.2 Backend Deployment
+    7.3.2.1 Cloud service setup
+    7.3.2.2 Environment variables
+    7.3.2.3 Deploy FastAPI
+    7.3.2.4 Health verification
+
+7.3.3 Frontend Deployment
+    7.3.3.1 Static hosting
+    7.3.3.2 Environment variables
+    7.3.3.3 Deploy React
+    7.3.3.4 UI verification
+
+7.3.4 End-to-End Validation
+    7.3.4.1 API communication
+    7.3.4.2 Prediction testing
+    7.3.4.3 Batch prediction testing
+
+7.3.5 Phase Lock
+
 │   ├── 7.4 Environment Variables
 │   └── 7.5 Production Testing
 │
