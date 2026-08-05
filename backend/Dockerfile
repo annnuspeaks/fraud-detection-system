@@ -33,7 +33,6 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY backend/app ./app
 
 # Optional files
-COPY backend/.env ./
 COPY backend/docs ./docs
 
 # ===========================
