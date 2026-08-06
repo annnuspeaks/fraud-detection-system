@@ -46,7 +46,7 @@ app.add_middleware(
         "http://127.0.0.1:3000",
 
         # Vercel Production
-        "https://frontend-annuspeaks.vercel.app",
+        "https://fraudmatrix.vercel.app",
         "https://frontend-gxc3nn5rb-annuspeaks.vercel.app",
         "https://frontend-alpha-virid-lx1rvvgqoq.vercel.app",
     ],
