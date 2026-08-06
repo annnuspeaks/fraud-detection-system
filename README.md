@@ -10,6 +10,88 @@ This project aims to build a production-ready fraud detection system capable of 
 
 ---
 
+## Live Demo
+
+### Production Frontend
+
+https://fraudmatrix.vercel.app
+
+### Production Backend
+
+https://fraud-detection-backend-0tpc.onrender.com
+
+### API Health Check
+
+https://fraud-detection-backend-0tpc.onrender.com/health
+
+---
+
+## Production Architecture
+
+```text```
+                User
+                  │
+                  ▼
+        React + Vite Frontend
+            (Vercel Hosting)
+                  │
+          HTTPS REST API
+                  │
+                  ▼
+         FastAPI Backend
+        (Render Web Service)
+                  │
+                  ▼
+       LightGBM Fraud Model
+                  │
+                  ▼
+      Fraud Prediction Results
+
+---
+
+## Deployment Stack
+
+| Layer | Technology |
+|--------|------------|
+| Frontend Hosting | Vercel |
+| Backend Hosting | Render |
+| API Framework | FastAPI |
+| Machine Learning | LightGBM |
+| Frontend | React + Vite |
+| Version Control | GitHub |
+
+---
+
+## Production Features
+
+- Production frontend deployed on Vercel
+- Production backend deployed on Render
+- End-to-end frontend/backend communication
+- Environment variable configuration
+- Cross-Origin Resource Sharing (CORS)
+- Health monitoring endpoint
+- Batch CSV fraud prediction
+- Enterprise-grade error handling
+- Retry mechanism
+- Responsive user interface
+
+---
+
+## Production Features
+
+- Production frontend deployed on Vercel
+- Production backend deployed on Render
+- End-to-end frontend/backend communication
+- Environment variable configuration
+- Cross-Origin Resource Sharing (CORS)
+- Health monitoring endpoint
+- Batch CSV fraud prediction
+- Enterprise-grade error handling
+- Retry mechanism
+- Responsive user interface
+
+---
+
 ## Objectives
 
 - Detect fraudulent transactions with high accuracy.
@@ -53,6 +135,12 @@ This project aims to build a production-ready fraud detection system capable of 
 - Jupyter Notebook
 - VS Code
 
+### Deployment
+
+- Vercel
+- Render
+- Docker
+
 ---
 
 ## Project Structure
@@ -74,16 +162,27 @@ fraud-detection-system/
 
 ---
 
+## Deployment Highlights
+
+- Dockerized FastAPI backend
+- Vercel-hosted React frontend
+- Render-hosted backend service
+- Production environment variables
+- Secure CORS configuration
+- Automatic GitHub deployments
+
+---
+
 ## Current Progress
 
 - [x] Phase 0 — Project Planning
 - [x] Phase 1 — Project Initialization
-- [ ] Phase 2 — Data Engineering
-- [ ] Phase 3 — Machine Learning
-- [ ] Phase 4 — Backend Development
-- [ ] Phase 5 — Frontend Development
-- [ ] Phase 6 — Integration
-- [ ] Phase 7 — Deployment
+- [x] Phase 2 — Data Engineering
+- [x] Phase 3 — Machine Learning
+- [x] Phase 4 — Backend Development
+- [x] Phase 5 — Frontend Development
+- [x] Phase 6 — System Integration
+- [x] Phase 7 — Production Deployment
 - [ ] Phase 8 — Portfolio Enhancement
 - [ ] Phase 9 — Project Completion
 
@@ -558,3 +657,29 @@ Docker automatically resolves the backend service using its service name instead
 | Variable | Description | Example |
 |----------|-------------|---------|
 | VITE_API_BASE_URL | Backend API Base URL | http://localhost:8000 |
+
+---
+
+## Current Status
+
+The Fraud Detection System is fully deployed and operational.
+
+Current project status:
+
+- Production frontend deployed
+- Production backend deployed
+- API integration completed
+- Batch prediction completed
+- Responsive UI completed
+- Deployment validation completed
+- Ready for portfolio enhancement
+
+---
+
+## Next Milestones
+
+- Portfolio screenshots
+- Demo GIF
+- Architecture diagrams
+- GitHub release
+- Portfolio integration

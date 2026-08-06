@@ -1,27 +1,48 @@
 # Backend Technical Documentation
 
-> **Purpose:** Comprehensive technical documentation for the Fraud Detection System backend.
+> **Purpose:** Comprehensive engineering and implementation reference for the Fraud Detection System backend.
 >
-> **Audience:** Developers, Contributors, Technical Reviewers, and Future Maintainers.
+> **Audience:** Backend Developers, Contributors, Technical Reviewers, DevOps Engineers, and Future Maintainers.
 >
 > **Project:** Fraud Detection System
 >
 > **Module:** Backend
 >
-> **Last Updated:** Phase 5.11
+> **Version:** 2.0
+>
+> **Status:** Production Ready
+>
+> **Documentation Type:** Technical Engineering Handbook
+>
+> **Deployment Status:** Production
+>
+> **Backend Hosting:** Render
+>
+> **Frontend Hosting:** Vercel
+>
+> **Last Updated:** Phase 7.6.5
 >
 > **Related Documents**
 >
 > - `../README.md`
 > - `../../README.md`
+> - `../../frontend/README.md`
+> - `../../frontend/docs/frontend.md`
 
 ---
 
 # Table of Contents
 
+## Foundation
+
 1. Introduction
 2. System Overview
 3. Technology Stack
+
+---
+
+## Architecture & Implementation
+
 4. Backend Architecture
 5. Folder Structure
 6. API Design
@@ -30,12 +51,37 @@
 9. Model Management
 10. Prediction Workflow
 11. Error Handling & Logging
+
+---
+
+## Engineering Decisions
+
 12. Architecture Decisions
 13. Performance Considerations
 14. Development Workflow
+
+---
+
+## Project Evaluation
+
 15. Known Limitations
 16. Future Improvements
-17. Phase Progress
+17. Project Completion Summary
+
+---
+
+## Production Deployment
+
+18. Production Deployment
+19. Environment Configuration
+20. Deployment Validation
+
+---
+
+## Document Maintenance
+
+- Revision History
+- References
 
 ---
 
@@ -1872,7 +1918,7 @@ Future improvements should continue following the principles established through
 
 ---
 
-# Chapter 17 — Phase Progress
+# Chapter 17 — Project Completion Summary
 
 ## 17.1 Backend Development Summary
 
@@ -1936,13 +1982,567 @@ By emphasizing modular architecture, layered responsibilities, structured valida
 
 ---
 
+# Chapter 18 — Production Deployment
+
+## 18.1 Overview
+
+The backend has been successfully deployed to a production environment, making the Fraud Detection System publicly accessible through a secure REST API.
+
+Production deployment represents the transition from a local development application to a production-ready backend service capable of serving real prediction requests from external clients.
+
+The deployment strategy emphasizes reproducibility, maintainability, automated delivery, and separation between application logic and deployment infrastructure.
+
+---
+
+## 18.2 Deployment Objectives
+
+The production deployment was designed to achieve the following objectives:
+
+- Provide a publicly accessible prediction API.
+- Support secure HTTPS communication.
+- Enable automatic deployment from GitHub.
+- Maintain environment-specific configuration.
+- Preserve a consistent execution environment.
+- Simplify operational maintenance.
+- Support future scalability.
+
+These objectives align with the engineering principles established throughout the backend architecture.
+
+---
+
+## 18.3 Production Architecture
+
+The deployed backend participates in the overall system architecture shown below.
+
+```text
+                    User
+                      │
+                      ▼
+         React + Vite Frontend
+              (Vercel)
+                      │
+                HTTPS REST API
+                      │
+                      ▼
+            FastAPI Backend
+              (Render)
+                      │
+                      ▼
+         Prediction Service Layer
+                      │
+                      ▼
+          LightGBM Prediction Model
+                      │
+                      ▼
+             Prediction Response
+```
+
+The frontend is responsible for user interaction while the backend performs request validation, prediction execution, and response generation.
+
+---
+
+## 18.4 Deployment Infrastructure
+
+The backend deployment consists of several independent infrastructure components.
+
+| Component | Technology | Responsibility |
+|-----------|------------|----------------|
+| Source Control | GitHub | Version management |
+| Backend Framework | FastAPI | REST API implementation |
+| Application Server | Uvicorn | ASGI request processing |
+| Containerization | Docker | Reproducible execution environment |
+| Cloud Platform | Render | Backend hosting |
+| Machine Learning | LightGBM | Fraud prediction |
+| Documentation | Swagger / ReDoc | Interactive API documentation |
+
+Each component has a clearly defined responsibility, reducing coupling and simplifying maintenance.
+
+---
+
+## 18.5 Deployment Workflow
+
+Every production deployment follows the workflow below.
+
+```text
+Developer
+
+      │
+
+      ▼
+
+Git Commit
+
+      │
+
+      ▼
+
+GitHub Repository
+
+      │
+
+      ▼
+
+Render detects new commit
+
+      │
+
+      ▼
+
+Docker Image Build
+
+      │
+
+      ▼
+
+Container Startup
+
+      │
+
+      ▼
+
+Health Endpoint Verification
+
+      │
+
+      ▼
+
+Production API Available
+```
+
+This automated workflow minimizes manual deployment effort while ensuring that production always reflects the latest validated source code.
+
+---
+
+## 18.6 Production Resources
+
+The deployed backend exposes the following production resources.
+
+| Resource | URL |
+|----------|-----|
+| Backend API | https://fraud-detection-backend-0tpc.onrender.com |
+| Health Endpoint | https://fraud-detection-backend-0tpc.onrender.com/health |
+| Swagger UI | https://fraud-detection-backend-0tpc.onrender.com/docs |
+| ReDoc | https://fraud-detection-backend-0tpc.onrender.com/redoc |
+
+These endpoints provide prediction services, deployment verification, and interactive API documentation.
+
+---
+
+## 18.7 Deployment Characteristics
+
+The production deployment provides several engineering advantages.
+
+### Continuous Deployment
+
+Every push to the production branch automatically triggers a new deployment.
+
+### Reproducible Environment
+
+Docker ensures consistent execution across local development and production.
+
+### Secure Communication
+
+All production requests are served over HTTPS.
+
+### Public Accessibility
+
+The backend API can be accessed securely from the deployed frontend application.
+
+### Environment Isolation
+
+Application configuration remains external to the source code through environment variables.
+
+---
+
+## 18.8 Deployment Limitations
+
+The current deployment strategy intentionally accepts several practical limitations.
+
+- Render free-tier instances may require a brief startup period after inactivity.
+- Single-instance deployment is used.
+- Automatic horizontal scaling is not implemented.
+- Advanced monitoring and alerting are outside the current project scope.
+
+These limitations are acceptable for the current educational, portfolio, and demonstration objectives.
+
+---
+
+## 18.9 Engineering Outcomes
+
+The completed deployment demonstrates the successful integration of:
+
+- FastAPI
+- Docker
+- Render
+- GitHub
+- LightGBM
+- Production REST APIs
+- Automated deployment workflow
+
+Together, these components establish a maintainable production backend suitable for machine learning inference and future project expansion.
+
+---
+
+## Chapter Summary
+
+Production deployment transforms the backend from a local development service into a publicly accessible machine learning API while preserving modular architecture, deployment consistency, and engineering best practices. The resulting deployment pipeline supports reliable delivery, simplified maintenance, and future scalability without requiring changes to the core application architecture.
+
+---
+
+# Chapter 19 — Environment Configuration
+
+## 19.1 Overview
+
+Environment configuration separates deployment-specific settings from application logic, allowing the backend to operate consistently across development and production environments without requiring source code modifications.
+
+Rather than embedding configuration values directly into the application, the backend retrieves runtime settings from environment variables. This approach improves portability, maintainability, deployment flexibility, and security.
+
+---
+
+## 19.2 Configuration Philosophy
+
+The backend follows a centralized configuration strategy based on the following engineering principles.
+
+- Separate configuration from business logic.
+- Avoid hardcoded deployment values.
+- Support multiple execution environments.
+- Simplify production deployment.
+- Improve maintainability.
+- Reduce configuration-related errors.
+
+Configuration should define **how the application behaves**, while the application code defines **what the application does**.
+
+---
+
+## 19.3 Configuration Sources
+
+The backend may obtain configuration values from multiple sources depending on the execution environment.
+
+| Environment | Configuration Source |
+|-------------|----------------------|
+| Local Development | `.env` file |
+| Production | Render Environment Variables |
+| Application | Default configuration values |
+
+This layered configuration strategy allows each environment to remain independent while using the same application code.
+
+---
+
+## 19.4 Development Configuration
+
+During local development, configuration values are typically stored inside a `.env` file.
+
+Example:
+
+```env
+ENVIRONMENT=development
+HOST=0.0.0.0
+PORT=8000
+LOG_LEVEL=INFO
+```
+
+The `.env` file is intended only for local development and should never contain sensitive production credentials.
+
+---
+
+## 19.5 Production Configuration
+
+The production backend is deployed on Render.
+
+Production configuration is managed through the Render dashboard rather than local configuration files.
+
+Typical production configuration includes:
+
+- Environment name
+- Host configuration
+- Port configuration
+- Logging level
+- Application-specific runtime variables
+
+Managing production configuration externally prevents deployment-specific information from becoming part of the source repository.
+
+---
+
+## 19.6 Configuration Lifecycle
+
+Every backend startup follows the configuration lifecycle shown below.
+
+```text
+Application Startup
+        │
+        ▼
+Load Environment Variables
+        │
+        ▼
+Initialize Configuration
+        │
+        ▼
+Validate Required Values
+        │
+        ▼
+Application Initialization
+        │
+        ▼
+Backend Ready
+```
+
+The application does not begin serving requests until configuration has been successfully initialized.
+
+---
+
+## 19.7 Security Considerations
+
+Proper configuration management contributes significantly to application security.
+
+Recommended practices include:
+
+- Never commit production `.env` files.
+- Store sensitive values outside the repository.
+- Use environment-specific configuration.
+- Validate required configuration during startup.
+- Minimize exposure of internal configuration details.
+
+These practices reduce the risk of accidental credential exposure and improve deployment safety.
+
+---
+
+## 19.8 Benefits of Centralized Configuration
+
+The current configuration strategy provides several engineering benefits.
+
+- Environment independence
+- Simplified deployment
+- Improved maintainability
+- Easier debugging
+- Reduced hardcoded values
+- Better scalability
+- Cleaner application architecture
+
+Centralized configuration also supports future migration to other deployment platforms without requiring architectural changes.
+
+---
+
+## 19.9 Future Expansion
+
+The existing configuration architecture supports future enhancements such as:
+
+- Database configuration
+- Authentication providers
+- API keys
+- External storage services
+- Monitoring platforms
+- Multiple deployment environments
+- Feature flags
+
+These capabilities can be introduced without modifying the overall configuration strategy.
+
+---
+
+## Chapter Summary
+
+The backend configuration architecture separates runtime configuration from application logic, enabling flexible deployment, improved maintainability, and secure environment management. By centralizing configuration and externalizing deployment-specific values, the backend remains portable across development and production environments while supporting future infrastructure growth.
+
+---
+
+# Chapter 20 — Deployment Validation
+
+## 20.1 Overview
+
+Following production deployment, the backend underwent a structured validation process to verify deployment integrity, API availability, machine learning inference, and frontend integration.
+
+Rather than validating individual components in isolation, the deployment validation process evaluated the complete production workflow from client request to prediction response.
+
+The objective was to confirm that the deployed backend behaves consistently with the locally validated implementation.
+
+---
+
+## 20.2 Validation Objectives
+
+Production validation was performed to verify the following engineering objectives.
+
+- Successful backend deployment
+- Public API accessibility
+- HTTPS communication
+- Correct endpoint behavior
+- Machine learning inference
+- Frontend integration
+- Environment configuration
+- Production reliability
+
+Successful completion of these objectives confirms that the backend is suitable for production demonstrations and portfolio presentation.
+
+---
+
+## 20.3 Deployment Validation Workflow
+
+Every production validation follows the workflow below.
+
+```text
+Application Deployment
+        │
+        ▼
+Health Endpoint Verification
+        │
+        ▼
+REST API Validation
+        │
+        ▼
+Prediction Endpoint Validation
+        │
+        ▼
+Frontend Integration Testing
+        │
+        ▼
+Production Verification
+```
+
+Each validation stage confirms a different aspect of the deployed backend before considering the deployment successful.
+
+---
+
+## 20.4 Validation Checklist
+
+The following production scenarios were successfully verified.
+
+| Validation Item | Status |
+|-----------------|--------|
+| Backend Deployment | ✅ Passed |
+| Docker Build | ✅ Passed |
+| Render Deployment | ✅ Passed |
+| Health Endpoint | ✅ Passed |
+| Root Endpoint | ✅ Passed |
+| Prediction Endpoint | ✅ Passed |
+| Swagger Documentation | ✅ Passed |
+| ReDoc Documentation | ✅ Passed |
+| HTTPS Communication | ✅ Passed |
+| Frontend Connectivity | ✅ Passed |
+| Machine Learning Inference | ✅ Passed |
+| Production API Availability | ✅ Passed |
+
+---
+
+## 20.5 End-to-End Validation
+
+The complete prediction pipeline was successfully validated.
+
+```text
+CSV Upload
+      │
+      ▼
+React Frontend
+      │
+      ▼
+HTTPS Request
+      │
+      ▼
+FastAPI Backend
+      │
+      ▼
+Request Validation
+      │
+      ▼
+Prediction Service
+      │
+      ▼
+LightGBM Model
+      │
+      ▼
+Prediction Response
+      │
+      ▼
+Frontend Visualization
+```
+
+Successful execution of the complete workflow confirms that all production components communicate correctly and that the deployed system functions as an integrated application.
+
+---
+
+## 20.6 Operational Validation
+
+Operational verification confirmed that the deployed backend provides:
+
+- Stable API responses
+- Consistent prediction execution
+- Correct request validation
+- Reliable response generation
+- Public accessibility
+- Interactive API documentation
+- Successful frontend integration
+
+These results demonstrate that the backend is functioning as intended within the production environment.
+
+---
+
+## 20.7 Known Operational Characteristics
+
+The current deployment exhibits the following expected operational behavior.
+
+### Cold Start
+
+Render free-tier deployments may require a short startup period after prolonged inactivity.
+
+### Stateless Execution
+
+Each incoming request is processed independently, without maintaining client session state.
+
+### Automated Deployment
+
+Every validated push to the production branch automatically triggers a new deployment.
+
+These characteristics are expected and consistent with the selected deployment architecture.
+
+---
+
+## 20.8 Production Readiness Assessment
+
+Based on deployment validation, the backend satisfies the following production readiness criteria.
+
+| Criterion | Status |
+|-----------|--------|
+| API Availability | ✅ Ready |
+| Request Validation | ✅ Ready |
+| Prediction Pipeline | ✅ Ready |
+| Machine Learning Integration | ✅ Ready |
+| Docker Deployment | ✅ Ready |
+| Environment Configuration | ✅ Ready |
+| Frontend Integration | ✅ Ready |
+| Documentation | ✅ Ready |
+
+The backend is therefore considered production-ready for the current project scope.
+
+---
+
+## 20.9 Engineering Outcomes
+
+Completion of deployment validation confirms that the backend successfully integrates:
+
+- FastAPI
+- Docker
+- Render
+- GitHub
+- LightGBM
+- RESTful APIs
+- Environment-based configuration
+- Production deployment workflow
+
+These components collectively establish a maintainable, production-ready backend architecture suitable for machine learning inference and future system expansion.
+
+---
+
+## Chapter Summary
+
+Deployment validation confirms that the backend architecture, deployment strategy, machine learning pipeline, and API implementation operate reliably within the production environment. The completed validation establishes confidence in the backend's readiness for production demonstrations, portfolio presentation, and future engineering enhancements.
+
+---
+
 # Revision History
 
-| Version | Phase | Description |
-|---------|-------|-------------|
-| 1.0 | Phase 5.11 | Initial backend technical documentation completed. |
+| Version | Phase | Status | Description |
+|---------|-------|--------|-------------|
+| 1.0 | Phase 5.11 | Completed | Initial backend technical documentation covering architecture, API design, validation pipeline, prediction engine, model management, engineering decisions, performance considerations, development workflow, known limitations, future improvements, and project progress. |
+| 2.0 | Phase 7.6.5 | Production Ready | Documentation synchronized with production deployment. Added Production Deployment, Environment Configuration, and Deployment Validation chapters. Updated metadata, document references, versioning, deployment status, and engineering documentation to reflect the production-ready backend architecture. |
 
-> Documentation should be reviewed after major architectural changes or feature additions to ensure continued accuracy.
+> This technical handbook should be reviewed and updated whenever significant architectural changes, deployment modifications, API enhancements, or infrastructure updates are introduced to the backend.
 
 ---
 
@@ -1950,7 +2550,22 @@ By emphasizing modular architecture, layered responsibilities, structured valida
 
 - `../README.md`
 - `../../README.md`
+- `../../frontend/README.md`
+- `../../frontend/docs/frontend.md`
 
 ---
 
-*This document is maintained as part of the Fraud Detection System engineering documentation and should be updated alongside significant backend architectural changes.*
+# Document Maintenance
+
+This document serves as the primary engineering reference for the Fraud Detection System backend.
+
+Maintenance responsibilities include:
+
+- Keeping architecture documentation synchronized with implementation.
+- Recording significant engineering decisions.
+- Updating deployment documentation after infrastructure changes.
+- Documenting new API endpoints and backend capabilities.
+- Reviewing configuration guidance after environment updates.
+- Maintaining consistency with related project documentation.
+
+The backend technical handbook should evolve alongside the application to ensure it remains an accurate reference for developers, contributors, technical reviewers, and future maintainers.

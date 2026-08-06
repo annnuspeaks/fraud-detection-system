@@ -1,8 +1,3 @@
-<!-- ========================================================= -->
-<!-- Frontend README                                            -->
-<!-- Fraud Detection System                                     -->
-<!-- ========================================================= -->
-
 <p align="center">
   <img src="public/favicon.ico" alt="Fraud Detection System Logo" width="96" />
 </p>
@@ -12,412 +7,602 @@ Fraud Detection System – Frontend
 </h1>
 
 <p align="center">
-A modern, responsive, and scalable React application for enterprise-grade fraud prediction.
+Modern React + Vite frontend for enterprise-grade batch fraud detection powered by a FastAPI backend.
 </p>
 
 <p align="center">
 
-React • Vite • Axios • React Router • Responsive UI • REST API
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi)
+![Deployment](https://img.shields.io/badge/Vercel-Production-black?logo=vercel)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
 </p>
 
 ---
 
-# Frontend
+# Table of Contents
 
-> **Purpose:** Quick start guide for the Fraud Detection System frontend.
->
-> **Audience:** Developers, Contributors, Recruiters, and Technical Reviewers.
->
-> **Project:** Fraud Detection System
->
-> **Module:** Frontend
->
-> **Last Updated:** Phase 5.11
->
-> **Related Documents**
->
-> - `docs/frontend.md` *(Complete Frontend Technical Documentation)*
-
----
-
-# Project Overview
-
-The **Fraud Detection System Frontend** is a modern React-based web application that provides an intuitive interface for performing batch fraud prediction using CSV files.
-
-Designed with a modular architecture and reusable UI components, the application communicates with a FastAPI backend to upload datasets, execute fraud detection models, and present prediction results through a clean, responsive, and user-friendly interface.
-
-The frontend emphasizes maintainability, scalability, and developer experience while following modern React development practices and responsive design principles.
+- [Overview](#overview)
+- [Live Resources](#live-resources)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Screens](#screens)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [Available Scripts](#available-scripts)
+- [Production Build](#production-build)
+- [Backend Integration](#backend-integration)
+- [Deployment](#deployment)
+- [Architecture Overview](#architecture-overview)
+- [Troubleshooting](#troubleshooting)
+- [Documentation](#documentation)
+- [License](#license)
 
 ---
 
-# Key Features
+# Overview
 
-- Batch CSV fraud prediction workflow
-- Modern React component architecture
-- Responsive layout for Desktop, Tablet, and Mobile devices
-- Centralized API communication layer
+The **Fraud Detection System Frontend** is a production-ready web application built using **React** and **Vite** that provides an intuitive interface for enterprise-scale batch fraud detection.
+
+Users can upload transaction datasets in CSV format, send them securely to the backend prediction service, and visualize fraud detection results through an interactive and responsive dashboard.
+
+The frontend communicates with a production FastAPI backend through REST APIs and is deployed on **Vercel**, while the backend is hosted on **Render**. The application has been designed with modular architecture, reusable components, responsive layouts, and clean separation between presentation and business logic.
+
+The project emphasizes maintainability, scalability, and deployment readiness, making it suitable for production demonstrations, portfolio presentation, and enterprise-oriented machine learning workflows.
+
+---
+
+# Why This Project?
+
+Financial fraud continues to evolve rapidly, requiring scalable systems capable of processing large transaction datasets efficiently.
+
+This frontend was developed to demonstrate how modern web technologies can integrate seamlessly with machine learning services, enabling users to upload datasets, perform fraud prediction, and visualize results through a clean and responsive interface.
+
+The project also serves as a production-ready portfolio application showcasing frontend engineering, API integration, deployment, and software architecture best practices.
+
+---
+
+## Project Objectives
+
+- Provide a modern interface for batch fraud prediction.
+- Simplify CSV-based prediction workflows.
+- Deliver prediction summaries and detailed transaction results.
+- Integrate seamlessly with the FastAPI prediction API.
+- Maintain a responsive experience across desktop and mobile devices.
+- Demonstrate production-grade frontend deployment practices.
+
+---
+
+## Current Status
+
+| Item | Status |
+|------|--------|
+| Development | ✅ Completed |
+| Production Deployment | ✅ Live |
+| Frontend Hosting | Vercel |
+| Backend Integration | Connected |
+| API Communication | Operational |
+| Responsive UI | Implemented |
+
+---
+
+# Live Resources
+
+The following production resources are publicly accessible and represent the latest deployed version of the frontend application.
+
+| Resource | URL | Status |
+|----------|-----|--------|
+| 🌐 Production Application | https://fraudmatrix.vercel.app | ✅ Live |
+| ⚙️ Backend API | https://fraud-detection-backend-0tpc.onrender.com | ✅ Live |
+| ❤️ Health Endpoint | https://fraud-detection-backend-0tpc.onrender.com/health | ✅ Healthy |
+| 📘 Frontend Documentation | docs/frontend.md | 📖 Available |
+| 📗 Backend Documentation | ../backend/README.md | 📖 Available |
+| 📙 Root Documentation | ../README.md | 📖 Available |
+
+> **Note:** The backend is deployed on Render. After prolonged inactivity, the first request may take a few seconds while the service wakes up.
+
+---
+
+# Features
+
+The frontend has been designed to provide a simple, responsive, and production-ready interface for batch fraud detection while maintaining a clean separation between user experience and backend communication.
+
+## User Features
+
+- Upload transaction datasets in CSV format.
+- One-click batch fraud prediction.
+- Responsive drag-and-drop upload interface.
+- Real-time prediction progress feedback.
+- Interactive prediction summary dashboard.
+- Detailed transaction-level prediction results.
+- Success and error toast notifications.
+- Automatic file validation before prediction.
+- Mobile, tablet, and desktop responsive layout.
+- Clean and modern enterprise-inspired user interface.
+
+## Engineering Features
+
+- Built using React 19 and Vite.
+- Modular component-based architecture.
+- REST API communication using Axios.
+- Environment-based configuration.
+- Centralized API service layer.
+- Production-ready Vercel deployment.
+- Backend integration with FastAPI.
+- CORS-compatible production architecture.
+- Clean project organization for long-term scalability.
+- Easy deployment and maintenance.
+
+---
+
+# Design Principles
+
+The frontend has been developed using a set of engineering principles intended to maximize maintainability, scalability, and user experience.
+
+- Component-driven architecture
+- Separation of concerns
 - Reusable UI components
-- Toast-based notification system
-- Loading and retry states
-- Prediction summary dashboard
-- Dynamic prediction table
-- Clean folder organization
-- Professional developer-friendly architecture
+- Centralized API communication
+- Environment-based configuration
+- Responsive-first design
+- Predictable routing
+- Production-ready deployment
 
 ---
 
 # Technology Stack
 
 | Category | Technology |
-|-----------|------------|
-| Framework | React 19 |
+|----------|------------|
+| Frontend Framework | React 19 |
 | Build Tool | Vite |
+| Language | JavaScript (ES6+) |
 | Routing | React Router DOM |
 | HTTP Client | Axios |
 | Styling | CSS3 |
-| Language | JavaScript (ES Modules) |
 | Package Manager | npm |
-| Backend Communication | REST API |
-
----
-
-# Design Principles
-
-The frontend has been developed around the following engineering principles:
-
-- Component-driven architecture
-- Clear separation of concerns
-- Reusability over duplication
-- Responsive-first user experience
-- Maintainable folder structure
-- Scalable API integration
-- Consistent user feedback through loading and notification states
-- Readable and well-organized codebase
+| Version Control | Git & GitHub |
+| Frontend Hosting | Vercel |
+| Backend Framework | FastAPI |
+| Backend Hosting | Render |
 
 ---
 
 # Project Structure
 
-The frontend follows a modular and component-driven architecture to improve maintainability, scalability, and code reusability.
-
 ```text
 frontend/
+├── docs/
+│   └── frontend.md
 │
-├── docs/                  # Frontend technical documentation
-├── public/                # Static assets
+├── public/
+│   ├── favicon.ico
+│   └── ...
+│
 ├── src/
-│   ├── api/               # Axios instance and API configuration
-│   ├── assets/            # Images, icons, and static resources
-│   ├── components/        # Reusable UI components
-│   ├── constants/         # Application constants
-│   ├── hooks/             # Custom React hooks
-│   ├── layouts/           # Shared page layouts
-│   ├── pages/             # Route-level pages
-│   ├── services/          # API service layer
-│   ├── utils/             # Utility functions
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── styles/
+│   ├── utils/
 │   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
+│   └── main.jsx
 │
+├── .env.example
 ├── package.json
+├── vite.config.js
+├── vercel.json
 └── README.md
 ```
 
-## Directory Responsibilities
-
-| Directory | Responsibility |
-|------------|----------------|
-| `docs/` | Detailed frontend technical documentation. |
-| `public/` | Static assets served directly by Vite. |
-| `src/api/` | Shared Axios client and API configuration. |
-| `src/assets/` | Images, icons, and other frontend resources. |
-| `src/components/` | Reusable UI components used throughout the application. |
-| `src/constants/` | Application-wide constants and configuration values. |
-| `src/hooks/` | Custom React hooks for reusable logic. |
-| `src/layouts/` | Shared layouts that provide consistent page structure. |
-| `src/pages/` | Route-level application pages. |
-| `src/services/` | Business logic responsible for communicating with backend APIs. |
-| `src/utils/` | Shared helper functions and utilities. |
+The project follows a feature-oriented architecture where UI components, routing, services, assets, documentation, and configuration are organized into independent modules. This structure simplifies maintenance, encourages reuse, and supports future scalability.
 
 ---
 
-# Installation
+# Screens
+
+The frontend currently provides the following production-ready interfaces:
+
+- Home Page
+- Prediction Page
+- CSV Upload Interface
+- Prediction Summary Dashboard
+- Transaction Result Table
+- Loading Indicators
+- Success Notifications
+- Error Handling Interface
+- Responsive Navigation
+- Scroll-to-Top Utility
+
+Screenshots and demonstration assets are maintained separately under the portfolio enhancement phase.
+
+---
+
+# Getting Started
+
+This section explains how to set up the frontend application for local development.
 
 ## Prerequisites
 
-Before running the frontend locally, ensure the following software is installed:
+Ensure the following software is installed before running the project.
 
-- Node.js (Latest LTS version recommended)
-- npm
-- Git
+| Software | Recommended Version |
+|----------|---------------------|
+| Node.js | 20.x or later |
+| npm | Latest |
+| Git | Latest |
+| Visual Studio Code | Latest |
+
+Verify your installation.
+
+```bash
+node -v
+npm -v
+git --version
+```
 
 ---
 
-## Clone the Repository
+## Installation
+
+Clone the repository.
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/annnuspeaks/fraud-detection-system.git
 ```
 
 Navigate to the frontend directory.
 
 ```bash
-cd frontend
+cd fraud-detection-system/frontend
 ```
 
----
-
-## Install Dependencies
+Install project dependencies.
 
 ```bash
 npm install
 ```
 
----
-
-## Start Development Server
+Start the development server.
 
 ```bash
 npm run dev
 ```
 
-By default, Vite starts the development server locally.
+The application will be available at:
 
-To expose it to other devices on the same network:
-
-```bash
-npm run dev -- --host
+```text
+http://localhost:5173
 ```
 
 ---
 
-# Available Scripts
+## Environment Variables
+
+The frontend uses environment variables to determine the backend API endpoint.
+
+Create a `.env` file inside the frontend directory.
+
+```env
+VITE_API_BASE_URL=http://localhost:8000
+```
+
+### Production Configuration
+
+The production deployment on Vercel uses the following environment variable.
+
+```env
+VITE_API_BASE_URL=https://fraud-detection-backend-0tpc.onrender.com
+```
+
+> **Important**
+>
+> Environment files (`.env`) should never be committed to version control. Configure production environment variables directly through the Vercel dashboard.
+
+---
+
+## Available Scripts
+
+The project includes the following npm scripts.
 
 | Command | Description |
-|----------|-------------|
+|---------|-------------|
 | `npm run dev` | Starts the Vite development server. |
-| `npm run build` | Generates an optimized production build. |
+| `npm run build` | Creates an optimized production build. |
 | `npm run preview` | Serves the production build locally for testing. |
-| `npm run lint` | Runs ESLint across the project. |
 
 ---
 
-# Environment Configuration
+## Development Workflow
 
-The frontend communicates with the backend through a centralized API configuration.
+The recommended frontend development workflow is:
 
-Current development uses a configurable API base URL.
-
-Future versions of the project will migrate this configuration to dedicated environment variables (`.env`) to simplify local development, LAN testing, and production deployment.
+1. Start the FastAPI backend.
+2. Start the React development server.
+3. Upload a CSV dataset.
+4. Verify backend communication.
+5. Review prediction results.
+6. Commit changes after successful validation.
 
 ---
 
-# Backend Requirements
+## Building for Production
 
-The frontend depends on the Fraud Detection System backend.
+Generate an optimized production build.
 
-Before using prediction features, ensure the backend server is running and accessible.
+```bash
+npm run build
+```
 
-Typical development workflow:
+The generated production assets are created inside the following directory.
 
 ```text
-Backend Running
-        │
-        ▼
-Frontend Starts
-        │
-        ▼
-API Connection
-        │
-        ▼
-CSV Upload
-        │
-        ▼
+dist/
+```
+
+Preview the production build locally.
+
+```bash
+npm run preview
+```
+
+---
+
+## Deployment Configuration
+
+The frontend is configured for production deployment using **Vercel**.
+
+Production deployment includes:
+
+- Optimized Vite production build.
+- Automatic deployment from the GitHub repository.
+- Environment variable management.
+- Global CDN distribution.
+- HTTPS enabled by default.
+- Automatic asset optimization.
+
+Production URL
+
+```text
+https://fraudmatrix.vercel.app
+```
+
+---
+
+# Backend Integration
+
+The frontend communicates with the Fraud Detection System backend through a RESTful API developed using FastAPI. All prediction requests are sent securely over HTTPS, and responses are rendered through reusable UI components.
+
+The frontend contains no machine learning logic.
+
+All prediction processing is delegated to the backend API, allowing the frontend to remain focused exclusively on presentation, interaction, and user experience.
+
+## Integration Overview
+
+```text
+User
+   │
+   ▼
+React Components
+   │
+   ▼
+Axios Service Layer
+   │
+   ▼
+FastAPI REST API
+   │
+   ▼
+Fraud Detection Model
+   │
+   ▼
 Prediction Results
 ```
 
+The communication layer has been intentionally separated from the presentation layer to improve maintainability, scalability, and testing.
+
 ---
 
-# Development Workflow
+## API Communication Flow
 
-The recommended development workflow for frontend changes is:
+The frontend follows a predictable request lifecycle.
+
+1. User uploads a CSV dataset.
+2. Client-side validation verifies the uploaded file.
+3. Axios sends the request to the backend prediction endpoint.
+4. FastAPI validates the request.
+5. The machine learning model performs fraud prediction.
+6. Prediction results are returned to the frontend.
+7. Summary cards and detailed prediction tables are updated.
+
+---
+
+## Production API Endpoint
 
 ```text
-Requirement
-
-↓
-
-Planning
-
-↓
-
-Component Development
-
-↓
-
-API Integration
-
-↓
-
-Testing
-
-↓
-
-Responsive Validation
-
-↓
-
-Documentation
-
-↓
-
-Git Commit
+https://fraud-detection-backend-0tpc.onrender.com
 ```
 
-Maintaining this workflow helps keep the project organized, testable, and easy to maintain.
+Health Endpoint
+
+```text
+https://fraud-detection-backend-0tpc.onrender.com/health
+```
+
+---
+
+# Deployment
+
+The frontend is deployed using **Vercel**, providing automatic builds, HTTPS, global content delivery, and continuous deployment from GitHub.
+
+Deployment Workflow
+
+```text
+GitHub
+   │
+   ▼
+Vercel
+   │
+   ▼
+Automatic Build
+   │
+   ▼
+Production Deployment
+```
+
+## Deployment Platform
+
+| Component | Platform |
+|-----------|----------|
+| Frontend | Vercel |
+| Backend | Render |
+| Source Control | GitHub |
+
+---
+
+## Production Deployment
+
+Production URL
+
+```text
+https://fraudmatrix.vercel.app
+```
+
+Deployment includes:
+
+- Automatic GitHub integration.
+- Production environment variables.
+- HTTPS by default.
+- Global CDN distribution.
+- Optimized Vite production build.
+- Continuous deployment on every push to the main branch.
+
+---
+
+## Deployment Architecture
+
+```text
+                     User
+                       │
+                       ▼
+         React + Vite Frontend (Vercel)
+                       │
+                  HTTPS REST API
+                       │
+                       ▼
+          FastAPI Backend (Render)
+                       │
+                       ▼
+          LightGBM Prediction Model
+                       │
+                       ▼
+              Fraud Prediction Results
+```
+
+---
+
+# Troubleshooting
+
+## Backend takes time to respond
+
+The backend is hosted on Render. If the service has been inactive, the first request may take a few seconds while the instance starts.
+
+---
+
+## Environment Variable Issues
+
+Ensure the following variable is configured correctly.
+
+```env
+VITE_API_BASE_URL=https://fraud-detection-backend-0tpc.onrender.com
+```
+
+---
+
+## API Connection Failed
+
+Verify:
+
+- Backend service is running.
+- Environment variables are configured correctly.
+- Browser developer tools show successful API requests.
+- The backend health endpoint is accessible.
+
+---
+
+## Build Failures
+
+If dependencies become inconsistent, reinstall them.
+
+```bash
+rm -rf node_modules
+npm install
+npm run build
+```
+
+---
+
+## Port Already In Use
+
+Terminate the existing process or run the application using a different available port.
+
+---
+
+## Browser Cache
+
+If the latest deployment is not visible, clear the browser cache or perform a hard refresh.
+
+Windows
+
+Ctrl + Shift + R
+
+macOS
+
+Cmd + Shift + R
 
 ---
 
 # Documentation
 
-Detailed technical documentation is available in:
+The project documentation is organized into multiple levels to separate quick-start guides from detailed engineering documentation.
 
-```text
-docs/frontend.md
-```
-
-The technical documentation contains:
-
-- Frontend architecture
-- Folder structure explanation
-- Routing and navigation
-- Shared layouts
-- Component documentation
-- API integration
-- CSV prediction workflow
-- Responsive design strategy
-- Architecture decisions
-- Development workflow
-- Known limitations
-- Future improvements
-
----
-
-# Screenshots
-
-Project screenshots will be added as the application reaches production-ready status.
-
-Suggested screenshots include:
-
-- Home Page
-- Prediction Page
-- CSV Upload Workflow
-- Prediction Summary
-- Prediction Results Table
-- Mobile Responsive View
-- Tablet Responsive View
-
----
-
-# Project Status
-
-Current Status:
-
-```text
-✔ Frontend Architecture Completed
-
-✔ API Integration Completed
-
-✔ CSV Upload Workflow Completed
-
-✔ Prediction Result Visualization Completed
-
-✔ Loading & Error Handling Completed
-
-✔ Responsive Design Completed
-
-✔ Real Device Compatibility Testing Completed
-
-✔ Frontend Documentation In Progress
-```
-
----
-
-# Future Roadmap
-
-Upcoming milestones include:
-
-- Complete frontend technical documentation
-- Backend technical documentation
-- Project-level documentation
-- Environment variable standardization
-- Deployment configuration
-- Production release preparation
+| Document | Purpose |
+|----------|---------|
+| `../README.md` | Complete project overview |
+| `docs/frontend.md` | Frontend technical documentation |
+| `../backend/README.md` | Backend overview |
+| `../backend/docs/backend.md` | Backend technical documentation |
 
 ---
 
 # Contributing
 
-This project is currently maintained as a portfolio-focused machine learning engineering project.
+Contributions that improve code quality, documentation, architecture, performance, or user experience are always welcome.
 
-External contributions are not planned at this stage.
+Before submitting changes:
 
-Future collaboration guidelines may be added as the project evolves.
+- Follow the existing project structure.
+- Keep components modular and reusable.
+- Maintain consistent coding style.
+- Update documentation whenever functionality changes.
+- Test all affected workflows before creating a pull request.
 
 ---
 
 # License
 
-This project is intended for educational, research, and portfolio purposes.
+This project is distributed under the MIT License.
 
-License information will be finalized before the first public release.
-
----
-
-# Additional Resources
-
-Frontend Technical Documentation
-
-```text
-docs/frontend.md
-```
-
-Project Root Documentation
-
-```text
-../README.md
-```
-
-Backend Documentation
-
-```text
-../backend/README.md
-```
-
----
-
-# Acknowledgements
-
-This frontend has been developed following modern React engineering practices with an emphasis on:
-
-- Clean Architecture
-- Component Reusability
-- Responsive Design
-- Maintainability
-- Scalability
-- Developer Experience
-
+See the LICENSE file for additional information.
 ---
 
 <p align="center">
 
-Built with React, Vite, and modern frontend engineering practices.
+Developed using React, Vite, FastAPI, and Machine Learning.
 
-</p>
-
-<p align="center">
-
-Fraud Detection System • Frontend Module
+Designed for production deployment, portfolio presentation, and continuous learning.
 
 </p>

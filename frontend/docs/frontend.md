@@ -8,7 +8,17 @@
 >
 > **Module:** Frontend
 >
-> **Last Updated:** Phase 5.11
+> **Version:** 2.0
+>
+> **Status:** Production Ready
+>
+> **Last Update:** Phase 7.6.3
+>
+> **Deployment Status:** Production
+>
+> **Frontend Host:** Vercel
+>
+> **Backend Host:** Render>
 >
 > **Related Documents**
 >
@@ -36,6 +46,9 @@
 15. Known Limitations
 16. Future Improvements
 17. Phase Progress
+18. Production Deployment
+19. Environment Configuration
+20. Deployment Validation
 
 ---
 
@@ -2133,11 +2146,334 @@ By emphasizing clean architecture, reusable components, structured documentation
 
 ---
 
+# Chapter 18 — Production Deployment
+
+## 18.1 Overview
+
+The Fraud Detection System frontend has been successfully deployed to a production environment using **Vercel**, while the backend is deployed on **Render**. This deployment architecture enables automatic builds, continuous deployment, HTTPS communication, and public accessibility.
+
+The production deployment transforms the project from a local development application into a publicly accessible machine learning web application suitable for demonstrations, portfolio presentation, and future enhancements.
+
+---
+
+## 18.2 Deployment Architecture
+
+The production deployment follows the architecture below.
+
+```text
+                    User
+                      │
+                      ▼
+        React + Vite Frontend (Vercel)
+                      │
+               HTTPS REST API
+                      │
+                      ▼
+          FastAPI Backend (Render)
+                      │
+                      ▼
+         LightGBM Fraud Detection Model
+                      │
+                      ▼
+             Prediction Response
+```
+
+The frontend is responsible exclusively for user interaction and presentation, while all machine learning inference is performed by the backend.
+
+---
+
+## 18.3 Deployment Platforms
+
+| Component | Platform |
+|-----------|----------|
+| Frontend | Vercel |
+| Backend | Render |
+| Source Control | GitHub |
+| Build Tool | Vite |
+| Backend Framework | FastAPI |
+
+Each deployment platform was selected to simplify development, reduce infrastructure management, and support continuous deployment directly from GitHub.
+
+---
+
+## 18.4 Deployment Workflow
+
+Every production deployment follows the workflow below.
+
+```text
+Developer
+
+│
+
+▼
+
+Git Commit
+
+│
+
+▼
+
+GitHub Repository
+
+│
+
+▼
+
+Automatic Deployment
+
+│
+
+├── Vercel (Frontend)
+
+└── Render (Backend)
+
+│
+
+▼
+
+Production Validation
+
+│
+
+▼
+
+Public Availability
+```
+
+This workflow ensures that every production deployment is reproducible, traceable, and automatically synchronized with the repository.
+
+---
+
+## 18.5 Production Resources
+
+| Resource | URL |
+|----------|-----|
+| Frontend | https://fraudmatrix.vercel.app |
+| Backend API | https://fraud-detection-backend-0tpc.onrender.com |
+| Health Endpoint | https://fraud-detection-backend-0tpc.onrender.com/health |
+
+---
+
+## 18.6 Deployment Benefits
+
+The production deployment provides:
+
+- Public accessibility
+- Automatic HTTPS
+- Continuous deployment
+- Environment-based configuration
+- Global content delivery
+- Simplified maintenance
+- Portfolio-ready deployment
+- Scalable hosting architecture
+
+---
+
+## Chapter Summary
+
+The frontend deployment establishes a production-ready environment that integrates React, FastAPI, GitHub, Vercel, and Render into a cohesive deployment pipeline while preserving a clean separation between presentation and machine learning inference.
+
+---
+
+# Chapter 19 — Environment Configuration
+
+## 19.1 Overview
+
+Environment-based configuration enables the frontend to communicate with different backend environments without modifying application source code.
+
+This approach simplifies development, deployment, testing, and future maintenance.
+
+---
+
+## 19.2 Development Environment
+
+Local development uses the following environment configuration.
+
+```env
+VITE_API_BASE_URL=http://localhost:8000
+```
+
+This configuration enables communication with the locally running FastAPI backend.
+
+---
+
+## 19.3 Production Environment
+
+The production deployment uses the following configuration.
+
+```env
+VITE_API_BASE_URL=https://fraud-detection-backend-0tpc.onrender.com
+```
+
+The production value is configured through the Vercel project settings rather than being committed to the repository.
+
+---
+
+## 19.4 Environment Variable Strategy
+
+The frontend follows a centralized configuration strategy.
+
+Benefits include:
+
+- Single source of configuration
+- Environment independence
+- Simplified deployment
+- Improved maintainability
+- Reduced configuration errors
+
+---
+
+## 19.5 Security Considerations
+
+The frontend intentionally avoids storing sensitive configuration inside the repository.
+
+Configuration principles include:
+
+- Never commit production `.env` files.
+- Configure production values through the hosting platform.
+- Keep backend URLs configurable.
+- Separate development and production environments.
+
+---
+
+## 19.6 Future Expansion
+
+The current configuration strategy supports future additions such as:
+
+- Authentication providers
+- Analytics configuration
+- Feature flags
+- Monitoring services
+- Multiple deployment environments
+
+without requiring architectural changes.
+
+---
+
+## Chapter Summary
+
+Environment-based configuration separates deployment concerns from application logic, improving maintainability while supporting future scalability and deployment flexibility.
+
+---
+
+# Chapter 20 — Deployment Validation
+
+## 20.1 Objective
+
+After deployment, the application was validated to ensure correct communication between the frontend and backend under production conditions.
+
+Validation focused on functionality, reliability, and deployment integrity.
+
+---
+
+## 20.2 Validation Checklist
+
+The following deployment scenarios were successfully verified.
+
+| Validation | Status |
+|------------|--------|
+| Frontend Deployment | ✅ Passed |
+| Backend Deployment | ✅ Passed |
+| HTTPS Communication | ✅ Passed |
+| API Connectivity | ✅ Passed |
+| CSV Upload | ✅ Passed |
+| Batch Prediction | ✅ Passed |
+| Prediction Rendering | ✅ Passed |
+| CORS Configuration | ✅ Passed |
+| Environment Variables | ✅ Passed |
+| Health Endpoint | ✅ Passed |
+| Responsive Layout | ✅ Passed |
+
+---
+
+## 20.3 End-to-End Workflow Validation
+
+The complete production workflow was verified.
+
+```text
+User Uploads CSV
+
+↓
+
+Frontend Validation
+
+↓
+
+REST API Request
+
+↓
+
+FastAPI Backend
+
+↓
+
+Machine Learning Prediction
+
+↓
+
+Prediction Response
+
+↓
+
+Frontend Visualization
+```
+
+The production workflow performed successfully without requiring manual intervention.
+
+---
+
+## 20.4 Cross-Platform Validation
+
+The deployed frontend was successfully accessed from multiple environments to verify production accessibility.
+
+Validation included:
+
+- Desktop browsers
+- Mobile browsers
+- Multiple network connections
+- Public production URL
+- Backend API connectivity
+
+---
+
+## 20.5 Engineering Outcomes
+
+The production deployment demonstrates that the frontend architecture supports:
+
+- Reliable API communication
+- Production-ready deployment
+- Environment-based configuration
+- Maintainable project structure
+- Scalable deployment workflow
+- Enterprise-oriented frontend engineering
+
+---
+
+## 20.6 Future Validation
+
+Future releases should continue validating:
+
+- Performance
+- Browser compatibility
+- Accessibility
+- Security
+- Deployment stability
+- User experience
+
+---
+
+## Chapter Summary
+
+Successful deployment validation confirms that the frontend architecture, deployment strategy, and backend integration operate correctly within a production environment, establishing a stable foundation for future development and portfolio presentation.
+
+---
+
 # Revision History
 
 | Version | Phase | Description |
 |---------|-------|-------------|
-| 1.0 | Phase 5.11 | Initial technical documentation completed. |
+| 1.0 | Phase 5.11 | Initial frontend technical documentation completed. |
+| 2.0 | Phase 7.6.3 | Production deployment documentation, environment configuration, deployment validation, and documentation synchronization completed. |
 
 ---
 
