@@ -77,21 +77,6 @@ https://fraud-detection-backend-0tpc.onrender.com/health
 
 ---
 
-## Production Features
-
-- Production frontend deployed on Vercel
-- Production backend deployed on Render
-- End-to-end frontend/backend communication
-- Environment variable configuration
-- Cross-Origin Resource Sharing (CORS)
-- Health monitoring endpoint
-- Batch CSV fraud prediction
-- Enterprise-grade error handling
-- Retry mechanism
-- Responsive user interface
-
----
-
 ## Objectives
 
 - Detect fraudulent transactions with high accuracy.
@@ -109,7 +94,7 @@ https://fraud-detection-backend-0tpc.onrender.com/health
 
 - Python
 - Scikit-learn
-- XGBoost
+- LightGBM
 - Pandas
 - NumPy
 
@@ -148,6 +133,7 @@ https://fraud-detection-backend-0tpc.onrender.com/health
 ```text
 fraud-detection-system/
 │
+├── assets/
 ├── backend/
 ├── frontend/
 ├── src/
@@ -183,14 +169,14 @@ fraud-detection-system/
 - [x] Phase 5 — Frontend Development
 - [x] Phase 6 — System Integration
 - [x] Phase 7 — Production Deployment
-- [ ] Phase 8 — Portfolio Enhancement
-- [ ] Phase 9 — Project Completion
+- [x] Phase 8 — Portfolio Enhancement
+- [x] Phase 9 — Project Completion
 
 ---
 
 ## License
 
-This project is developed for educational and portfolio purposes.
+This project is licensed under the MIT License. See the LICENSE file for more information.
 
 ## Data Versioning
 
@@ -660,26 +646,37 @@ Docker automatically resolves the backend service using its service name instead
 
 ---
 
-## Current Status
+## 🎨 Visual Assets
 
-The Fraud Detection System is fully deployed and operational.
+This repository includes a complete collection of production-ready visual assets for documentation, portfolio showcase, and social sharing.
 
-Current project status:
+### Showcase Diagrams
 
-- Production frontend deployed
-- Production backend deployed
-- API integration completed
-- Batch prediction completed
-- Responsive UI completed
-- Deployment validation completed
-- Ready for portfolio enhancement
+- Architecture Overview
+- Project Workflow
+- Machine Learning Pipeline
+- Technology Stack
+- Deployment Architecture
+- Feature Highlights
 
----
+Location:
 
-## Next Milestones
+```text
+assets/showcase/
+```
 
-- Portfolio screenshots
-- Demo GIF
-- Architecture diagrams
-- GitHub release
-- Portfolio integration
+### Production Screenshots
+
+Production screenshots demonstrating the complete application workflow are available at:
+
+```text
+assets/screenshots/production/
+```
+
+### Social Preview Banner
+
+The Open Graph banner used for GitHub Social Preview is located at:
+
+```text
+assets/social/github/social-preview-banner.png
+```
